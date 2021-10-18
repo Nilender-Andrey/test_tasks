@@ -1,4 +1,4 @@
-https://nilender-andrey.github.io/test_tasks/image_gallery/git
+https://nilender-andrey.github.io/test_tasks/image_gallery/
 
 ## Требования к галерее:
 
