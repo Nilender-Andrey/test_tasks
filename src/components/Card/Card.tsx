@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import placeholder from '../../img/Spinner.svg';
 
 type CardPropsType = {
   image: { id: number; url: string; width: number; height: number };
@@ -27,6 +28,7 @@ export default function Card({ image, cardDeleteHandler }: CardPropsType) {
         alt=""
         width={image.width}
         height={image.height}
+        style={load ? { background: 'none' } : { background: `url(${placeholder}) no-repeat center` }}
       />
 
       <div className="card__wrap-btn">
