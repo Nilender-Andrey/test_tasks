@@ -1,0 +1,56 @@
+.book-card {
+  width: 300px;
+  min-height: 450px;
+  padding: 20px;
+
+  border-radius: 5px;
+
+  -webkit-box-shadow: 0px 0px 24px 2px rgba(34, 60, 80, 0.37);
+  -moz-box-shadow: 0px 0px 24px 2px rgba(34, 60, 80, 0.37);
+  box-shadow: 0px 0px 24px 2px rgba(34, 60, 80, 0.37);
+
+  .book-card__img-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 0 auto;
+    width: 150px;
+    height: 250px;
+
+    margin-bottom: 20px;
+
+    -webkit-box-shadow: 0px 0px 24px 2px rgba(34, 60, 80, 0.37);
+    -moz-box-shadow: 0px 0px 24px 2px rgba(34, 60, 80, 0.37);
+    box-shadow: 0px 0px 24px 2px rgba(34, 60, 80, 0.37);
+
+    .book-card__img {
+      width: 100%;
+      height: 100%;
+      object-fit: fill;
+    }
+  }
+
+  .book-card__info-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    height: 150px;
+
+    .book-card__title {
+      font-size: 16px;
+    }
+    .book-card__authors {
+      .book-card__author {
+        font-size: 16px;
+        color: grey;
+        min-height: 18px;
+      }
+    }
+    .book-card__category {
+      font-size: 14px;
+      color: rgb(199, 199, 199);
+    }
+  }
+}

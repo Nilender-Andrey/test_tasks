@@ -1,0 +1,45 @@
+.form__wrap-options {
+  display: flex;
+  justify-content: space-evenly;
+
+  width: 100%;
+
+  .form__wrap-options_wrap {
+    display: flex;
+    align-items: center;
+
+    .options-title {
+      margin-right: 20px;
+    }
+
+    .form__categories,
+    .form__sorting {
+      width: 200px;
+      height: 32px;
+
+      padding-left: 5px;
+
+      border-radius: 5px;
+    }
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  .form__wrap-options_wrap {
+    flex-direction: column;
+  }
+
+  .options-title {
+    margin-right: 0;
+    margin-bottom: 10px;
+    margin-top: 10px;
+
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .form__wrap-options {
+    flex-direction: column;
+  }
+}

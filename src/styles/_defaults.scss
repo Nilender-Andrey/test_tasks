@@ -1,0 +1,25 @@
+$heightHeader: 250px;
+$colorReaderText: cornsilk;
+
+%defaultsButton {
+  border: none;
+  outline: none;
+
+  cursor: pointer;
+  transition: transform 0.1s linear;
+
+  &:hover {
+    background-color: $colorReaderText;
+  }
+
+  &:active {
+    transform: scale(0.95);
+    transition: all 0.1s;
+  }
+}
+
+%defaultsInputText {
+  width: 100%;
+  outline: none;
+  border-radius: 5px;
+}
