@@ -6,15 +6,15 @@ import('./Options.scss');
 interface OptionsProps {
   category: string;
   sorting: string;
-  handleCategoriesChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
-  handleSortingChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+  handlerCategoriesChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+  handlerSortingChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
 }
 
 export default function Options({
   category,
   sorting,
-  handleCategoriesChange,
-  handleSortingChange,
+  handlerCategoriesChange,
+  handlerSortingChange,
 }: OptionsProps) {
   return (
     <div className="form__wrap-options">
@@ -32,7 +32,7 @@ export default function Options({
             { name: 'Poetry', value: 'poetry' },
           ]}
           value={category}
-          onChangeHandler={handleCategoriesChange}
+          onChangeHandler={handlerCategoriesChange}
         />
       </div>
 
@@ -45,7 +45,7 @@ export default function Options({
             { name: 'Newest', value: 'newest' },
           ]}
           value={sorting}
-          onChangeHandler={handleSortingChange}
+          onChangeHandler={handlerSortingChange}
         />
       </div>
     </div>

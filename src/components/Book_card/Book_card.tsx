@@ -4,14 +4,15 @@ import { BookType } from '../../state/books_state';
 import './Book_card.scss';
 
 interface BookCardProps {
-  data: BookType;
+  book: BookType;
+  handlerClickOneBook: (e: string) => void;
 }
 
-export default function BookCard({ data }: BookCardProps) {
-  const { imageLinks, title, categories, authors } = data.volumeInfo;
+export default function BookCard({ book, handlerClickOneBook }: BookCardProps) {
+  const { imageLinks, title, categories, authors } = book.volumeInfo;
 
   return (
-    <div className="book-card">
+    <div className="book-card" onClick={() => handlerClickOneBook(book.id)}>
       <div className="book-card__img-wrap">
         {imageLinks && imageLinks.thumbnail ? (
           <img className="book-card__img" src={imageLinks.thumbnail} alt="book cover" />
@@ -24,11 +25,9 @@ export default function BookCard({ data }: BookCardProps) {
 
         <div className="book-card__authors">
           {authors
-            ? authors.map((author) => (
-                <p className="book-card__author" key={author}>
-                  {author}
-                </p>
-              ))
+            ? authors.reduce((str, author, index, arr) => {
+                return index < arr.length - 1 ? (str = author + ', ' + str) : (str = author);
+              }, '')
             : ''}
         </div>
         <p className="book-card__category">{categories ? categories[0] : ' '}</p>

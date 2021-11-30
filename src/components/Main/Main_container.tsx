@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { getBooks } from '../../api/api';
 import Main from './Main';
 
 export default function MainContainer() {

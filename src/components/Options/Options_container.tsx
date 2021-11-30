@@ -1,20 +1,18 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeCategory, changeSorting } from '../../state/options_state';
+import { changeCategory, changeSorting } from '../../state/books_state';
 import { RootState } from '../../state/store';
 import Options from './Options';
 
 export default function OptionsContainer() {
-  const category = useSelector((state: RootState) => state.optionsReducer.category);
-  const sorting = useSelector((state: RootState) => state.optionsReducer.sorting);
+  const category = useSelector((state: RootState) => state.booksReducer.category);
+  const sorting = useSelector((state: RootState) => state.booksReducer.sorting);
   const dispatch = useDispatch();
 
-  const handleCategoriesChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    console.log(e.target.value);
+  const handlerCategoriesChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     dispatch(changeCategory(e.target.value));
   };
-  const handleSortingChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    console.log(e.target.value);
+  const handlerSortingChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     dispatch(changeSorting(e.target.value));
   };
 
@@ -22,8 +20,8 @@ export default function OptionsContainer() {
     <Options
       category={category}
       sorting={sorting}
-      handleCategoriesChange={handleCategoriesChange}
-      handleSortingChange={handleSortingChange}
+      handlerCategoriesChange={handlerCategoriesChange}
+      handlerSortingChange={handlerSortingChange}
     />
   );
 }

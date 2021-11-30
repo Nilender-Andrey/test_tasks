@@ -1,35 +1,36 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getBooks } from '../../api/api';
-import { addBooks, changeFoundQuantity } from '../../state/books_state';
-import { changeSearch } from '../../state/options_state';
+import { fetchAllBooks } from '../../api/api';
+import { addSearch, changeIsLoading, changeNewSearch } from '../../state/books_state';
+
 import { RootState } from '../../state/store';
 import Search from './Search';
 
 export default function SearchContainer() {
-  const search = useSelector((state: RootState) => state.optionsReducer.search);
-  const category = useSelector((state: RootState) => state.optionsReducer.category);
-  const sorting = useSelector((state: RootState) => state.optionsReducer.sorting);
-
+  const { search, category, sorting } = useSelector((state: RootState) => state.booksReducer);
+  const { startIndex, isLoading } = useSelector((state: RootState) => state.booksReducer);
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    console.log(isLoading);
+    if (isLoading) {
+      dispatch(fetchAllBooks({ search, category, sorting, startIndex }));
+    }
+  });
+
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    dispatch(changeSearch(e.target.value));
+    dispatch(changeNewSearch(e.target.value));
   };
 
-  const clickHandler = () => {
-    getBooks(search, category, sorting).then((res) => {
-      dispatch(addBooks(res.books));
-      dispatch(changeFoundQuantity(res.number));
-    });
+  const clickHandler = async () => {
+    dispatch(addSearch());
+    dispatch(changeIsLoading(true));
   };
 
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+  const handleKeyDown = async (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
-      getBooks(search, category, sorting).then((res) => {
-        dispatch(addBooks(res.books));
-        dispatch(changeFoundQuantity(res.number));
-      });
+      dispatch(addSearch());
+      dispatch(changeIsLoading(true));
     }
   };
 

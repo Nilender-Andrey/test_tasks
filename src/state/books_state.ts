@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { fetchAllBooks, fetchBook } from '../api/api';
 
 export interface BookType {
   id: string;
@@ -11,13 +12,41 @@ export interface BookType {
 }
 
 interface BooksState {
+  startIndex: number;
   foundQuantity: number;
   books: BookType[];
+  isLoading: boolean;
+  error: string;
+
+  search: string;
+  newSearch: string;
+  category: string;
+  sorting: string;
+
+  idBook: string;
+  book: BookType;
 }
 
 const initialState: BooksState = {
+  startIndex: 0,
   foundQuantity: 0,
   books: [],
+  isLoading: false,
+  error: '',
+  search: '',
+  newSearch: '',
+  category: '',
+  sorting: 'relevance',
+  idBook: '',
+  book: {
+    id: '',
+    volumeInfo: {
+      title: '',
+      categories: [],
+      authors: [],
+      imageLinks: { thumbnail: '' },
+    },
+  },
 };
 
 const booksState = createSlice({
@@ -25,15 +54,77 @@ const booksState = createSlice({
   initialState,
 
   reducers: {
-    addBooks(state, data) {
-      state.books = data.payload;
+    addSearch(state) {
+      state.search = state.newSearch;
+      state.foundQuantity = 0;
+      state.startIndex = 0;
+      state.idBook = '';
     },
-    changeFoundQuantity(state, data) {
-      state.foundQuantity = data.payload;
+    changeIsLoading(state, data) {
+      state.isLoading = data.payload;
+    },
+    changeNewSearch(state, data) {
+      state.newSearch = data.payload;
+    },
+    changeCategory(state, data) {
+      state.category = data.payload;
+    },
+    changeSorting(state, data) {
+      state.sorting = data.payload;
+    },
+    addIdBook(state, data) {
+      state.idBook = data.payload;
+    },
+    removeIdBook(state) {
+      state.idBook = '';
+    },
+  },
+  extraReducers: {
+    [fetchAllBooks.pending.type]: (state) => {
+      state.isLoading = true;
+    },
+    [fetchAllBooks.fulfilled.type]: (state, data) => {
+      state.isLoading = false;
+      state.error = '';
+      if (state.startIndex === 0) {
+        state.books = data.payload.books;
+        state.foundQuantity = data.payload.foundQuantity;
+        state.startIndex = 30;
+      } else {
+        state.books = [...state.books, ...data.payload.books];
+        state.startIndex = state.startIndex + 30;
+      }
+    },
+    [fetchAllBooks.rejected.type]: (state, data) => {
+      state.isLoading = false;
+      state.error = data.payload;
+    },
+
+    [fetchBook.pending.type]: (state) => {
+      state.isLoading = true;
+    },
+    [fetchBook.fulfilled.type]: (state, data) => {
+      console.log(data.payload);
+      state.isLoading = false;
+      state.error = '';
+
+      state.book = data.payload;
+    },
+    [fetchBook.rejected.type]: (state, data) => {
+      state.isLoading = false;
+      state.error = data.payload;
     },
   },
 });
 
 export default booksState.reducer;
 
-export const { addBooks, changeFoundQuantity } = booksState.actions;
+export const {
+  changeIsLoading,
+  addSearch,
+  changeNewSearch,
+  changeCategory,
+  changeSorting,
+  addIdBook,
+  removeIdBook,
+} = booksState.actions;

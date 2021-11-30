@@ -8,7 +8,6 @@ interface SelectProps {
 }
 
 export default function Select({ classes, options, value, onChangeHandler }: SelectProps) {
-  console.log('value', value);
   return (
     <select className={classes} value={value} onChange={onChangeHandler}>
       {options.map((option) => (

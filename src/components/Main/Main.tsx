@@ -1,12 +1,20 @@
 import React from 'react';
-import BookList from '../Book_list/Book_list';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../state/store';
+import BooksListContainer from '../Books_list/Books_list_container';
+import BookPageContainer from '../Book_page/Book_page_container';
+
+import Loading from '../UI/Loading/Loading';
 
 import './Main.scss';
 
 export default function Main() {
+  const { isLoading, idBook } = useSelector((state: RootState) => state.booksReducer);
   return (
     <main className="main">
-      <BookList />
+      {idBook ? <BookPageContainer /> : <BooksListContainer />}
+
+      {isLoading && <Loading />}
     </main>
   );
 }
