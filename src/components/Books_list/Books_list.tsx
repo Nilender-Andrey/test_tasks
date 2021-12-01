@@ -1,6 +1,7 @@
 import React from 'react';
 import { BookType } from '../../state/books_state';
 import BookCard from '../Book_card/Book_card';
+import Loading from '../UI/Loading/Loading';
 
 import './Books_list.scss';
 
@@ -9,13 +10,21 @@ interface BooksListProps {
     books: BookType[];
     foundQuantity: number;
     startIndex: number;
+    isLoading: boolean;
     handlerClickMoreBooks: () => void;
     handlerClickOneBook: (e: string) => void;
   };
 }
 
 export default function BooksList({ data }: BooksListProps) {
-  const { books, foundQuantity, startIndex, handlerClickMoreBooks, handlerClickOneBook } = data;
+  const {
+    books,
+    foundQuantity,
+    startIndex,
+    handlerClickMoreBooks,
+    handlerClickOneBook,
+    isLoading,
+  } = data;
 
   const bookListTitle =
     data.foundQuantity === -1
@@ -24,6 +33,7 @@ export default function BooksList({ data }: BooksListProps) {
 
   return (
     <div className="books-list">
+      {isLoading && <Loading />}
       {books.length ? (
         <>
           <h3 className="books-list__title">{`Found ${foundQuantity} books`}</h3>
@@ -34,7 +44,7 @@ export default function BooksList({ data }: BooksListProps) {
             ))}
           </div>
           {startIndex >= foundQuantity ? null : (
-            <button className="book-list__button" type="button" onClick={handlerClickMoreBooks}>
+            <button className="books-list__button" type="button" onClick={handlerClickMoreBooks}>
               Load more
             </button>
           )}

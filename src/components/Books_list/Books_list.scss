@@ -1,6 +1,8 @@
 @import '../../styles/defaults.scss';
 
 .books-list {
+  position: relative;
+
   display: flex;
   flex-direction: column;
   align-items: center;

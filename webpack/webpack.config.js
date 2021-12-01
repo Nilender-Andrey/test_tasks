@@ -128,19 +128,12 @@ module.exports = {
       // //* настройки для MiniCssExtractPlugin
       {
         test: /\.css$/i,
-        use: [
-          fileCss ? MiniCssExtractPlugin.loader : 'style-loader',
-          'css-loader',
-        ],
+        use: [fileCss ? MiniCssExtractPlugin.loader : 'style-loader', 'css-loader'],
       },
       //* для scss
       {
         test: /\.s[ac]ss$/i,
-        use: [
-          fileCss ? MiniCssExtractPlugin.loader : 'style-loader',
-          'css-loader',
-          'sass-loader',
-        ],
+        use: [fileCss ? MiniCssExtractPlugin.loader : 'style-loader', 'css-loader', 'sass-loader'],
       },
       //* для babel
       {
@@ -171,11 +164,7 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: [
-              '@babel/preset-env',
-              '@babel/preset-react',
-              '@babel/preset-typescript',
-            ],
+            presets: ['@babel/preset-env', '@babel/preset-react', '@babel/preset-typescript'],
           },
         },
       },

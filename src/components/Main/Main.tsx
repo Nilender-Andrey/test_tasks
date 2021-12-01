@@ -4,17 +4,9 @@ import { RootState } from '../../state/store';
 import BooksListContainer from '../Books_list/Books_list_container';
 import BookPageContainer from '../Book_page/Book_page_container';
 
-import Loading from '../UI/Loading/Loading';
-
 import './Main.scss';
 
 export default function Main() {
-  const { isLoading, idBook } = useSelector((state: RootState) => state.booksReducer);
-  return (
-    <main className="main">
-      {idBook ? <BookPageContainer /> : <BooksListContainer />}
-
-      {isLoading && <Loading />}
-    </main>
-  );
+  const { idBook } = useSelector((state: RootState) => state.booksReducer);
+  return <main className="main">{idBook ? <BookPageContainer /> : <BooksListContainer />}</main>;
 }

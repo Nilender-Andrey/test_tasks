@@ -6,7 +6,7 @@ import { RootState } from '../../state/store';
 import BooksList from './Books_list';
 
 export default function BooksListContainer() {
-  const { books, foundQuantity, startIndex } = useSelector(
+  const { books, foundQuantity, startIndex, isLoading } = useSelector(
     (state: RootState) => state.booksReducer,
   );
 
@@ -24,6 +24,7 @@ export default function BooksListContainer() {
     books,
     foundQuantity,
     startIndex,
+    isLoading,
     handlerClickMoreBooks,
     handlerClickOneBook,
   };

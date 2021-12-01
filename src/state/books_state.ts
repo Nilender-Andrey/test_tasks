@@ -16,6 +16,7 @@ interface BooksState {
   foundQuantity: number;
   books: BookType[];
   isLoading: boolean;
+  isLoadingOne: boolean;
   error: string;
 
   search: string;
@@ -27,26 +28,29 @@ interface BooksState {
   book: BookType;
 }
 
+const bookStart = {
+  id: '',
+  volumeInfo: {
+    title: '',
+    categories: [],
+    authors: [],
+    imageLinks: { thumbnail: '' },
+  },
+};
+
 const initialState: BooksState = {
   startIndex: 0,
   foundQuantity: 0,
   books: [],
   isLoading: false,
+  isLoadingOne: false,
   error: '',
   search: '',
   newSearch: '',
   category: '',
   sorting: 'relevance',
   idBook: '',
-  book: {
-    id: '',
-    volumeInfo: {
-      title: '',
-      categories: [],
-      authors: [],
-      imageLinks: { thumbnail: '' },
-    },
-  },
+  book: bookStart,
 };
 
 const booksState = createSlice({
@@ -59,6 +63,7 @@ const booksState = createSlice({
       state.foundQuantity = 0;
       state.startIndex = 0;
       state.idBook = '';
+      state.book = bookStart;
     },
     changeIsLoading(state, data) {
       state.isLoading = data.payload;
@@ -77,6 +82,7 @@ const booksState = createSlice({
     },
     removeIdBook(state) {
       state.idBook = '';
+      state.book = bookStart;
     },
   },
   extraReducers: {
@@ -101,17 +107,16 @@ const booksState = createSlice({
     },
 
     [fetchBook.pending.type]: (state) => {
-      state.isLoading = true;
+      state.isLoadingOne = true;
     },
     [fetchBook.fulfilled.type]: (state, data) => {
-      console.log(data.payload);
-      state.isLoading = false;
+      state.isLoadingOne = false;
       state.error = '';
 
       state.book = data.payload;
     },
     [fetchBook.rejected.type]: (state, data) => {
-      state.isLoading = false;
+      state.isLoadingOne = false;
       state.error = data.payload;
     },
   },

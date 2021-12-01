@@ -12,7 +12,6 @@ export default function SearchContainer() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log(isLoading);
     if (isLoading) {
       dispatch(fetchAllBooks({ search, category, sorting, startIndex }));
     }

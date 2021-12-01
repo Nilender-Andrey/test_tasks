@@ -2,18 +2,12 @@
 
 .spinner-wrap {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
 
-  background-color: rgba(255, 248, 220, 0.37);
+  height: 50%;
 
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  min-height: 100vh;
 
   .spinner {
     width: 100%;
