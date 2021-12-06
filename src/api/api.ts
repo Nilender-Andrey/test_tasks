@@ -28,8 +28,6 @@ export const fetchAllBooks = createAsyncThunk(
     url += `&printType=${printType}`;
     //   url += `&key=${key}`;
 
-    console.log(url);
-
     try {
       const response = await axios.get(url);
 

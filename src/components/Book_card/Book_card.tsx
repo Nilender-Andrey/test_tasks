@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { BookType } from '../../state/books_state';
 import placeholder from '../../assets/placeholder.png';
 
@@ -12,9 +12,17 @@ interface BookCardProps {
 
 export default function BookCard({ book, handlerClickOneBook }: BookCardProps) {
   const { imageLinks, title, categories, authors } = book.volumeInfo;
+  const [moment, setMoment] = useState(true);
+
+  const theСlosing = () => {
+    setMoment(false);
+    setTimeout(() => {
+      handlerClickOneBook(book.id);
+    }, 300);
+  };
 
   return (
-    <div className="book-card" onClick={() => handlerClickOneBook(book.id)}>
+    <div className={`book-card ${moment && 'animation'}`} onClick={theСlosing}>
       <div className="book-card__img-wrap">
         {imageLinks && imageLinks.thumbnail ? (
           <img className="book-card__img" src={imageLinks.thumbnail} alt="book cover" />

@@ -8,5 +8,6 @@ import './Main.scss';
 
 export default function Main() {
   const { idBook } = useSelector((state: RootState) => state.booksReducer);
+
   return <main className="main">{idBook ? <BookPageContainer /> : <BooksListContainer />}</main>;
 }

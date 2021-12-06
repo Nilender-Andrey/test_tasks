@@ -2,6 +2,7 @@ import React from 'react';
 import { BookType } from '../../state/books_state';
 import BookCard from '../Book_card/Book_card';
 import Loading from '../UI/Loading/Loading';
+import { v4 as uuidv4 } from 'uuid';
 
 import './Books_list.scss';
 
@@ -27,20 +28,20 @@ export default function BooksList({ data }: BooksListProps) {
   } = data;
 
   const bookListTitle =
-    data.foundQuantity === -1
+    data.foundQuantity === -1 || !books
       ? 'No results were found for your search'
       : 'Enter your query or click search';
 
   return (
     <div className="books-list">
       {isLoading && <Loading />}
-      {books.length ? (
+      {books && books.length ? (
         <>
           <h3 className="books-list__title">{`Found ${foundQuantity} books`}</h3>
 
           <div className="wrap-list">
             {books.map((book) => (
-              <BookCard book={book} handlerClickOneBook={handlerClickOneBook} key={book.id} />
+              <BookCard book={book} handlerClickOneBook={handlerClickOneBook} key={uuidv4()} />
             ))}
           </div>
           {startIndex >= foundQuantity ? null : (

@@ -26,6 +26,7 @@ interface BooksState {
 
   idBook: string;
   book: BookType;
+  offset: number;
 }
 
 const bookStart = {
@@ -51,6 +52,7 @@ const initialState: BooksState = {
   sorting: 'relevance',
   idBook: '',
   book: bookStart,
+  offset: 0,
 };
 
 const booksState = createSlice({
@@ -64,6 +66,7 @@ const booksState = createSlice({
       state.startIndex = 0;
       state.idBook = '';
       state.book = bookStart;
+      state.offset = 0;
     },
     changeIsLoading(state, data) {
       state.isLoading = data.payload;
@@ -84,6 +87,9 @@ const booksState = createSlice({
       state.idBook = '';
       state.book = bookStart;
     },
+    setOffSet(state, data) {
+      state.offset = data.payload;
+    },
   },
   extraReducers: {
     [fetchAllBooks.pending.type]: (state) => {
@@ -102,6 +108,7 @@ const booksState = createSlice({
       }
     },
     [fetchAllBooks.rejected.type]: (state, data) => {
+      state.books = [];
       state.isLoading = false;
       state.error = data.payload;
     },
@@ -132,4 +139,5 @@ export const {
   changeSorting,
   addIdBook,
   removeIdBook,
+  setOffSet,
 } = booksState.actions;
