@@ -3,7 +3,7 @@ import { changeTheErrorText } from '../../state/ErrorsState';
 import addImageFile from './addImageFile';
 import addJsonFile from './addJsonFile';
 
-export default function fileHandling(file: File, dispatch:Dispatch<any>) {
+export default function fileHandling(file: File, dispatch: Dispatch) {
   dispatch(changeTheErrorText('ERROR_0'));
 
   if (file.type.startsWith('image/')) {

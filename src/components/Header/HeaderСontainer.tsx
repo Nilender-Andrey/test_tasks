@@ -1,8 +1,6 @@
 import React, { useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addId } from '../../helpers/addId';
-
-import addImageFile from '../../utils/fileHandling/addImageFile';
+import { v4 as uuidv4 } from 'uuid';
 
 import {
   addImageUrl,
@@ -52,12 +50,10 @@ export default function HeaderСontainer() {
 
   function addImageFileHandler() {
     if (inputFileUpload.current && inputFileUpload.current.files) {
-      const file = inputFileUpload.current.files[0];
+      const filesList = [...inputFileUpload.current.files];
       inputFileUpload.current.value = '';
 
-      if (file) {
-        fileHandling(file, dispatch);
-      }
+      filesList.forEach((file) => fileHandling(file, dispatch));
     }
   }
 

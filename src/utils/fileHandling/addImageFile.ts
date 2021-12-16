@@ -1,14 +1,18 @@
 import { Dispatch } from '@reduxjs/toolkit';
+import { v4 as uuidv4 } from 'uuid';
 import { addImageUrl, writeImageUrl } from '../../state/ImageState';
 
-export default function addImageFile(file: File, dispatch: Dispatch<any>) {
+export default function addImageFile(file: File, dispatch: Dispatch) {
+  console.log(file);
+
   const img = new Image();
 
   img.src = window.URL.createObjectURL(file);
 
   img.onload = () => {
     dispatch(writeImageUrl(img.src));
-    dispatch(addImageUrl({ id: Date.now(), width: img.width, height: img.height }));
-    // window.URL.revokeObjectURL(img.src);
+    dispatch(
+      addImageUrl({ id: uuidv4(), width: img.width, height: img.height }),
+    );
   };
 }

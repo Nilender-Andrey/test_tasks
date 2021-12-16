@@ -153,7 +153,6 @@ const imagesState = createSlice({
       const newGalleryImages = state.galleryImages.filter(
         (item) => item.id !== data.payload,
       );
-      // console.log(newGalleryImages);
       state.galleryImages = newGalleryImages;
     },
   },

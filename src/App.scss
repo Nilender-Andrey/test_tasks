@@ -1,4 +1,5 @@
 $max-width: 860px;
+$min-width: 320px;
 $mainColor: #f0fff4;
 $additionalColor: #c6f6d5;
 $hoverColor: #9ae6b4;
@@ -32,6 +33,7 @@ body {
   flex-direction: column;
 
   min-height: 100vh;
+
   padding-top: 110px;
 }
 .header {
@@ -40,6 +42,7 @@ body {
   z-index: 100;
 
   width: 100%;
+  min-width: $min-width;
   padding-bottom: 10px;
 
   background-color: $mainColor;
@@ -64,6 +67,7 @@ body {
 
   width: 100%;
   max-width: $max-width;
+
   height: 80px;
   margin: 0 auto;
 }
@@ -105,7 +109,7 @@ body {
   box-shadow: none;
   -webkit-transition: all 0.3s linear;
   transition: all 0.3s linear;
-  -webkit-transition: all 0.1s linear;
+  -webkit-transition: all 0.3s linear;
   -moz-transition: all 0.3s linear;
   -ms-transition: all 0.3s linear;
   -o-transition: all 0.3s linear;
@@ -145,6 +149,7 @@ body {
   gap: 10px;
 
   width: 100%;
+  min-width: $min-width;
   max-width: $max-width;
   margin: 0 auto;
   padding: 20px 10px 20px 10px;
@@ -236,11 +241,11 @@ body {
 .card__img_placeholder {
   height: 100%;
   width: 100%;
+
   max-width: 100%;
   -o-object-fit: cover;
   object-fit: cover;
   pointer-events: none;
-  //background: url('./img/Spinner.svg') no-repeat center;
 }
 
 .card:hover .card__wrap-btn {

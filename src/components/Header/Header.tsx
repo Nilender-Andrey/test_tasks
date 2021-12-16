@@ -4,7 +4,7 @@ type HeaderPropsType = {
   data: {
     inputFileUpload: React.RefObject<HTMLInputElement>;
     newImageUrl: string;
-    errorText:string;
+    errorText: string;
     inputTextOnChangeHandler: (
       event: React.ChangeEvent<HTMLInputElement>,
     ) => void;
@@ -15,7 +15,9 @@ type HeaderPropsType = {
 
 export default function Header({ data }: HeaderPropsType) {
   const {
-    inputFileUpload, newImageUrl, errorText,
+    inputFileUpload,
+    newImageUrl,
+    errorText,
     inputTextOnChangeHandler,
     addImageFileHandler,
 
@@ -50,6 +52,7 @@ export default function Header({ data }: HeaderPropsType) {
               type="file"
               ref={inputFileUpload}
               onChange={addImageFileHandler}
+              multiple
             />
           )}
           Добавить картинку
