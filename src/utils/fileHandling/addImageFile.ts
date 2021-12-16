@@ -3,8 +3,6 @@ import { v4 as uuidv4 } from 'uuid';
 import { addImageUrl, writeImageUrl } from '../../state/ImageState';
 
 export default function addImageFile(file: File, dispatch: Dispatch) {
-  console.log(file);
-
   const img = new Image();
 
   img.src = window.URL.createObjectURL(file);

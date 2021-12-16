@@ -1,30 +1,37 @@
 import React from 'react';
 import Card from '../Card/Card';
+import ImageFocus from '../ImageFocus/ImageFocus';
 
 type MainPropsType = {
   mainDate: {
-    imagesData: {
-      id: number;
+    galleryImages: {
+      id: string;
       url: string;
       width: number;
       height: number;
     }[];
     drag: boolean;
+    focusImage: string;
     dragStartHandler: (e: React.DragEvent<HTMLDivElement>) => void;
     dragLeaveHandler: (e: React.DragEvent<HTMLDivElement>) => void;
     onDropHandler: (e: React.DragEvent<HTMLDivElement>) => void;
-    cardDeleteHandler: (id: number) => void;
+    cardDeleteHandler: (id: string) => void;
+    focusOnImageHandler: (url: string) => void;
   };
 };
 
 export default function Main({ mainDate }: MainPropsType) {
+  const MAX_WIDTH = 480;
+  const widthWin = window.innerWidth;
   const {
-    imagesData,
+    galleryImages,
     drag,
+    focusImage,
     dragStartHandler,
     dragLeaveHandler,
     onDropHandler,
     cardDeleteHandler,
+    focusOnImageHandler,
   } = mainDate;
 
   return (
@@ -35,10 +42,12 @@ export default function Main({ mainDate }: MainPropsType) {
       onDragOver={dragStartHandler}
       onDrop={onDropHandler}
     >
-      {imagesData.map((image) => (
+      { focusImage && widthWin > MAX_WIDTH && <ImageFocus focusImage={focusImage} focusOnImageHandler={focusOnImageHandler} />}
+      {galleryImages.map((image) => (
         <Card
           image={image}
           cardDeleteHandler={cardDeleteHandler}
+          focusOnImageHandler={focusOnImageHandler}
           key={image.id}
         />
       ))}

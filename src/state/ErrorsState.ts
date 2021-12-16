@@ -2,14 +2,18 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 interface ErrorsState {
-  errorKey:number;
-  errorText:string;
-
+  errorKey: number;
+  errorText: string;
 }
-const initialState:ErrorsState = {
+
+type DataType = {
+  payload: { error: string; text?: string };
+  type: string;
+};
+
+const initialState: ErrorsState = {
   errorKey: 0,
   errorText: '',
-
 };
 
 const errorsState = createSlice({
@@ -17,13 +21,13 @@ const errorsState = createSlice({
   initialState,
 
   reducers: {
-    changeTheErrorText(state, data) {
-      switch (data.payload) {
+    changeTheErrorText(state, data: DataType) {
+      switch (data.payload.error) {
         case 'ERROR_0':
           state.errorText = '';
           break;
         case 'ERROR_1':
-          state.errorText = 'Файл не поддерживается или поврежден!';
+          state.errorText = `Файл ${data.payload.text} не поддерживается или поврежден!`;
           break;
         case 'ERROR_2':
           state.errorText = 'Не правильный или поврежденный URL адрес!';

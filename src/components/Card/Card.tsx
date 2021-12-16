@@ -2,11 +2,17 @@ import React, { useState } from 'react';
 import placeholder from '../../img/Spinner.svg';
 
 type CardPropsType = {
-  image: { id: number; url: string; width: number; height: number };
-  cardDeleteHandler: (id: number) => void;
+  image: { id: string; url: string; width: number; height: number };
+  cardDeleteHandler: (id: string) => void;
+  focusOnImageHandler: (url: string) => void;
 };
 
-export default function Card({ image, cardDeleteHandler }: CardPropsType) {
+export default function Card({
+  image,
+
+  cardDeleteHandler,
+  focusOnImageHandler,
+}: CardPropsType) {
   const [load, setLoad] = useState(false);
   const img = new Image();
 
@@ -21,15 +27,24 @@ export default function Card({ image, cardDeleteHandler }: CardPropsType) {
       key={image.id}
       style={{ flexGrow: +`${image.width / image.height}` }}
     >
-
-      <img
-        className="card__img"
-        src={load ? image.url : undefined}
-        alt=""
-        width={image.width}
-        height={image.height}
-        style={load ? { background: 'none' } : { background: `url(${placeholder}) no-repeat center` }}
-      />
+      <button
+        className="card-btn"
+        type="button"
+        onClick={() => focusOnImageHandler(image.url)}
+      >
+        <img
+          className="card-btn__img"
+          src={load ? image.url : undefined}
+          alt=""
+          width={image.width}
+          height={image.height}
+          style={
+          load
+            ? { background: 'none' }
+            : { background: `url(${placeholder}) no-repeat center` }
+        }
+        />
+      </button>
 
       <div className="card__wrap-btn">
         <button
@@ -40,7 +55,6 @@ export default function Card({ image, cardDeleteHandler }: CardPropsType) {
           Удалить
         </button>
       </div>
-
     </div>
   );
 }

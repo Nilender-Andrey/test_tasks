@@ -1,16 +1,15 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteImage, setDrag } from '../../state/ImageState';
+import { changeFocusImage, deleteImage, setDrag } from '../../state/ImageState';
 import { RootState } from '../../state/store';
 import fileHandling from '../../utils/fileHandling/fileHandling';
 
 import Main from './Main';
 
 export default function MainСontainer() {
-  const imagesData = useSelector(
-    (state: RootState) => state.imagesReducer.galleryImages,
+  const { drag, galleryImages, focusImage } = useSelector(
+    (state: RootState) => state.imagesReducer,
   );
-  const drag = useSelector((state: RootState) => state.imagesReducer.drag);
   const dispatch = useDispatch();
 
   function dragStartHandler(e: React.DragEvent<HTMLElement>) {
@@ -39,17 +38,23 @@ export default function MainСontainer() {
     dispatch(setDrag(false));
   }
 
-  function cardDeleteHandler(id:number) {
+  function cardDeleteHandler(id: string) {
     dispatch(deleteImage(id));
   }
 
+  const focusOnImageHandler = (id: string) => {
+    dispatch(changeFocusImage(id));
+  };
+
   const mainDate = {
-    imagesData,
+    galleryImages,
     drag,
+    focusImage,
     dragStartHandler,
     dragLeaveHandler,
     onDropHandler,
     cardDeleteHandler,
+    focusOnImageHandler,
   };
 
   return <Main mainDate={mainDate} />;

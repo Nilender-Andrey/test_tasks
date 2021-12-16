@@ -21,7 +21,6 @@ export default function HeaderСontainer() {
     (state: RootState) => state.errorsReducer.errorText,
   );
   const inputFileUpload = useRef<HTMLInputElement>(null);
-
   const dispatch = useDispatch();
 
   function inputTextOnChangeHandler(
@@ -31,18 +30,18 @@ export default function HeaderСontainer() {
   }
 
   function addImageUrlHandler() {
-    dispatch(changeTheErrorText('ERROR_0'));
+    dispatch(changeTheErrorText({ error: 'ERROR_0' }));
 
     const img = new Image();
 
     img.onload = () => {
       dispatch(
-        addImageUrl({ id: Date.now(), width: img.width, height: img.height }),
+        addImageUrl({ id: uuidv4(), width: img.width, height: img.height }),
       );
     };
 
     img.onerror = () => {
-      dispatch(changeTheErrorText('ERROR_2'));
+      dispatch(changeTheErrorText({ error: 'ERROR_2' }));
       dispatch(writeImageUrl(''));
     };
     img.src = newImageUrl;
