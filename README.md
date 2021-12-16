@@ -1,4 +1,11 @@
-https://nilender-andrey.github.io/test_tasks/image_gallery/git
+https://nilender-andrey.github.io/test_tasks/image_gallery/
+
+# Сборка
+1. Скачать
+2. Установите зависимости npm install
+3. Запустить npm run build
+
+react redux typescript
 
 ## Требования к галерее:
 
