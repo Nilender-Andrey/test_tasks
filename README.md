@@ -3,8 +3,8 @@ https://nilender-andrey.github.io/test_tasks/react_book_search_google_books_API/
 
 ### Сборка:
 1. Скачать
-2. Установите зависимости npm install
-3. Запустить npm start или собрать npm run build 
+2. Установите зависимости `npm install`
+3. Запустить `npm start` или собрать `npm run build` 
 
 React Redux Typescript Webpack
 
