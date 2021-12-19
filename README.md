@@ -3,8 +3,8 @@ https://nilender-andrey.github.io/test_tasks/image_gallery/
 
 ### Сборка
 1. Скачать
-2. Установите зависимости npm install
-3. Запустить npm start или собрать приложение npm run build
+2. Установите зависимости `npm install`
+3. Запустить `npm start` или собрать приложение `npm run build`
 
 React Redux Typescript Webpack
 
