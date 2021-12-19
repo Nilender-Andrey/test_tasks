@@ -1,17 +1,16 @@
+# Посмотреть:
 https://nilender-andrey.github.io/test_tasks/react_book_search_google_books_API/
 
-# Сборка
+# Сборка:
 1. Скачать
 2. Установите зависимости npm install
-3. Запустить npm run start
+3. Запустить npm start или собрать npm run build 
 
-react redux typescript
+React Redux Typescript
 
 ## Задание
 
 Необходимо разработать React-приложение поиска книг с помощью Google Books API. Документация: https://developers.google.com/books/docs/v1/using. Для авторизации запросов к API выбрать способ с предоставлением API key (https://developers.google.com/books/docs/v1/using#APIKey).
-
-Дополнительным плюсом будет: Финальный билд приложения должен быть запускаться из __Docker контейнера__ (хотябы с минимальной конфигурацией)
 
 __Функционал__
 
