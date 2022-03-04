@@ -1,0 +1,38 @@
+.nav {
+  flex: 1 1 70%;
+}
+.nav__list {
+  display: flex;
+  justify-content: flex-end;
+  gap: 30px;
+
+  list-style: none;
+}
+
+.nav__link {
+  position: relative;
+  text-decoration: none;
+
+  color: var(--link-color);
+}
+
+.nav__link.active {
+  color: var(--link-color-active);
+}
+
+.nav__link:hover::before {
+  left: -7px;
+  width: 100%;
+  margin-left: 7.5%;
+}
+
+.nav__link::before {
+  position: absolute;
+  top: 17px;
+  right: 0;
+  content: '';
+  width: 0;
+  height: 1px;
+  background-color: var(--link-color-hover);
+  transition: all linear 0.3s;
+}

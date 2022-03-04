@@ -1,0 +1,21 @@
+.header {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+  width: 100%;
+  height: var(--header-height);
+  padding: 5px 20px;
+
+  background-color: var(--header-bg-color);
+
+  box-shadow: var(--box-shadow);
+  -webkit-box-shadow: var(--box-shadow);
+  -moz-box-shadow: var(--box-shadow);
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 5px 10px;
+  }
+}

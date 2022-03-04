@@ -1,0 +1,14 @@
+.app {
+  width: 100%;
+  max-width: 800px;
+  min-height: 100vh;
+  margin: 0 auto;
+
+  background-color: var(--app-bg-color);
+
+  box-shadow: var(--app-box-shadow);
+  -webkit-box-shadow: var(--app-box-shadow);
+  -moz-box-shadow: var(--app-box-shadow);
+
+  overflow: hidden;
+}
