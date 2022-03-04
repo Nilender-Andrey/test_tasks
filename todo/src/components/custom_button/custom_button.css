@@ -1,0 +1,25 @@
+.custom_button {
+  align-self: center;
+
+  width: 45px;
+  height: 45px;
+  padding: 10px;
+
+  outline: none;
+  border: none;
+  border-radius: 50%;
+  background: none;
+
+  cursor: pointer;
+
+  transition: transform 0.2s;
+}
+
+.custom_button img {
+  width: 100%;
+  object-fit: contain;
+}
+
+.custom_button:hover {
+  transform: scale(1.5);
+}

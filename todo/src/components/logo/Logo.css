@@ -16,3 +16,10 @@
 .logo__link img {
   width: 100%;
 }
+
+@media (max-width: 480px) {
+  .logo {
+    width: 45px;
+    height: 45px;
+  }
+}

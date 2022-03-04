@@ -6,12 +6,13 @@
 
 .item-todo {
   display: flex;
+  align-items: center;
   gap: 20px;
 
   height: 70px;
 
   margin-bottom: 20px;
-  padding: 10px 20px 10px 0;
+  padding: 10px 20px 10px 10px;
 
   background-color: var(--item-todo-bg-color);
   border-radius: 15px;
@@ -20,35 +21,45 @@
   -webkit-box-shadow: var(--box-shadow);
   -moz-box-shadow: var(--box-shadow);
 
-  font-size: 18px;
-
-  cursor: pointer;
+  font-size: 1.2rem;
 
   transition: background-color 0.5s;
 }
 
-.item-todo:hover {
-  background-color: var(--item-todo-bg-color-hover);
-}
-
-.item-todo__checkbox {
-  flex: 0 0 50px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  height: 100%;
-  align-self: center;
-
-  border-right: 1px solid #003865;
-}
-
-.item-todo__checkbox input {
-  width: 20px;
-  height: 20px;
-}
-
 .item-todo__info {
   flex: 1 1 auto;
+
+  cursor: pointer;
+}
+.item-todo__info.checked {
+  text-decoration: line-through;
+}
+.item-todo__info.important {
+  font-weight: 700;
+  color: #ea5d61;
+}
+.custom_button.custom_button_сompleted,
+.custom_button.custom_button_сhange,
+.custom_button.custom_button_important {
+  flex: 0 0 auto;
+}
+
+.item-todo__btn-wrap {
+  position: relative;
+  z-index: 10;
+
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+
+  padding-top: 3px;
+  height: 45px;
+
+  overflow: hidden;
+
+  transition: height 0.3s;
+}
+
+.item-todo__btn-wrap_open {
+  height: 190px;
 }

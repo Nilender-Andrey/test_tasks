@@ -5,7 +5,10 @@ import Nav from '../nav/Nav';
 import './Header.css';
 
 function Header() {
-  const links = [{ id: 1, name: 'На главную', href: '/' }, { id: 2, name: 'К списку задач', href: '/todo' }];
+  const links = [
+    { id: 1, name: 'На главную', href: '/' },
+    { id: 2, name: 'К списку задач', href: '/todo' },
+  ];
 
   return (
     <header className="header">
