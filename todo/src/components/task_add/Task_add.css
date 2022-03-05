@@ -1,0 +1,44 @@
+.add-task {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: calc(100vh - var(--header-height));
+  width: 100%;
+  padding: 10px;
+
+  background-color: rgba(169, 169, 169, 0.479);
+}
+
+.form-add-task {
+  width: 300px;
+  height: 400px;
+  padding: 10px;
+
+  background-color: var(--form-bg-color);
+  border-radius: 10px;
+}
+
+.form-add-task__wrap {
+  padding: 20px 0;
+}
+.form-add-task__title {
+  padding-left: 10px;
+  margin-bottom: 5px;
+
+  font-size: 1.15rem;
+}
+
+.form-add-task__input-text {
+  width: 100%;
+  padding: 5px 20px 5px 5px;
+
+  font-size: 1rem;
+
+  border-radius: 5px;
+}

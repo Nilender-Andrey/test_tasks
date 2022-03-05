@@ -1,11 +1,12 @@
-.add-task {
-  position: absolute;
+.add-task-btn {
+  position: fixed;
+  z-index: 20;
+  bottom: 60px;
 
-  bottom: 50px;
-  right: 30px;
+  transform: translateX(-150%);
 }
 
-.btn.add-task__btn {
+.btn.add-task-btn__btn {
   height: 70px;
   width: 70px;
 
@@ -22,11 +23,11 @@
   transition: all 0.2s;
 }
 
-.add-task__btn:hover {
+.add-task-btn__btn:hover {
   background-color: var(--add-task-color);
   color: var(--add-task-bg-color);
 }
 
-.add-task__btn:active {
+.add-task-btn__btn:active {
   transform: scale(0.95);
 }

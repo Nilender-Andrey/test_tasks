@@ -7,37 +7,48 @@ import notCompletedImg from '../../assets/img/stop.png';
 import noteImg from '../../assets/img/note.png';
 import removeImg from '../../assets/img/remove.png';
 import optionImg from '../../assets/img/option.png';
-
 import CustomButton from '../custom_button/custom_button';
+import { ITask } from '../../store/reducers/tasks/task_slice';
 
-function ItemTodo() {
-  const [completed, setCompleted] = useState<boolean>(false);
-  const [important, setImportant] = useState<boolean>(false);
-  const [options, setOptions] = useState<boolean>(false);
-
-  const onToggleСompleted = () => {
-    setCompleted((s) => !s);
+interface IFunTask {
+  removeTask: (id: string) => {
+    payload: string;
+    type: string;
   };
-
-  const onToggleImportant = () => {
-    setImportant((i) => !i);
-    setOptions(false);
+  toggleOption: (id: string) => {
+    payload: string;
+    type: string;
   };
+  toggleImportant: (id: string) => {
+    payload: string;
+    type: string;
+  };
+  toComplete: (id: string) => {
+    payload: string;
+    type: string;
+  };
+}
+interface IItemTodo {
+  task: ITask;
+  fun: IFunTask;
+}
+
+function ItemTodo({ task, fun }: IItemTodo) {
+  const {
+    id, title, completed, important, options,
+  } = task;
+
+  const {
+    toggleOption, removeTask, toggleImportant, toComplete,
+  } = fun;
 
   const сhange = () => {
-    setOptions(false);
     console.log('сhange');
-  };
-  const remove = () => {
-    console.log('remove');
-  };
-  const onToggleOption = () => {
-    setOptions((o) => !o);
   };
 
   return (
     <li className="item-todo">
-      <CustomButton nameClass="сompleted" handler={onToggleСompleted}>
+      <CustomButton nameClass="сompleted" handler={() => toComplete(id)}>
         <img src={completed ? completedImg : notCompletedImg} alt="сompleted" />
       </CustomButton>
 
@@ -46,43 +57,33 @@ function ItemTodo() {
           important && 'important'
         }`}
       >
-        <p className="item-todo__title">Выпить кофе</p>
+        <p className="item-todo__title">{title}</p>
       </div>
 
       <div
-        className={`item-todo__btn-wrap ${
-          options ? 'item-todo__btn-wrap_open' : ''
-        }`}
+        className={
+          options
+            ? 'item-todo__btn-wrap item-todo__btn-wrap_open'
+            : 'item-todo__btn-wrap'
+        }
       >
-        <CustomButton
-          nameClass="option"
-          handler={onToggleOption}
-        >
-          <img src={optionImg} alt="option" />
-        </CustomButton>
-
-        <CustomButton
-          nameClass="сhange"
-          handler={сhange}
-        >
+        <CustomButton nameClass="сhange" handler={сhange}>
           <img src={noteImg} alt="сhange" />
         </CustomButton>
 
-        <CustomButton
-          nameClass="important"
-          handler={onToggleImportant}
-        >
+        <CustomButton nameClass="important" handler={() => toggleImportant(id)}>
           <img
             src={important ? importantImg : notImportantImg}
             alt="important"
           />
         </CustomButton>
 
-        <CustomButton
-          nameClass="remove"
-          handler={remove}
-        >
+        <CustomButton nameClass="remove" handler={() => removeTask(id)}>
           <img src={removeImg} alt="important" />
+        </CustomButton>
+
+        <CustomButton nameClass="option" handler={() => toggleOption(id)}>
+          <img src={optionImg} alt="option" />
         </CustomButton>
       </div>
     </li>

@@ -19,6 +19,8 @@
   --add-task-bg-color: #fff;
 
   --color: #fff;
+
+  --form-bg-color: #003865;
 }
 
 * {
@@ -37,5 +39,6 @@ body {
 }
 
 .page {
+  position: relative;
   min-height: calc(100vh - var(--header-height));
 }

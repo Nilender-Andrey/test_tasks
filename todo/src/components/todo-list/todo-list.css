@@ -1,10 +1,12 @@
 .todo-list {
-  padding: 30px 10px;
+  padding: 30px 10px 0 10px;
 
   list-style: none;
 }
 
 .item-todo {
+  position: relative;
+
   display: flex;
   align-items: center;
   gap: 20px;
@@ -26,6 +28,10 @@
   transition: background-color 0.5s;
 }
 
+.item-todo:last-child {
+  margin-bottom: 0px;
+}
+
 .item-todo__info {
   flex: 1 1 auto;
 
@@ -38,28 +44,35 @@
   font-weight: 700;
   color: #ea5d61;
 }
-.custom_button.custom_button_сompleted,
-.custom_button.custom_button_сhange,
-.custom_button.custom_button_important {
+.custom__button.custom__button_сompleted,
+.custom__button.custom__button_сhange,
+.custom__button.custom__button_important {
+  flex: 0 1 auto;
+}
+
+.custom__button.custom__button_option {
   flex: 0 0 auto;
 }
 
 .item-todo__btn-wrap {
-  position: relative;
-  z-index: 10;
+  position: absolute;
+  right: 20px;
 
   display: flex;
-  flex-direction: column;
-  align-self: flex-start;
+  justify-content: flex-end;
+  align-self: flex-end;
 
-  padding-top: 3px;
-  height: 45px;
+  width: 45px;
 
+  background-color: #003865;
+  border-radius: 5px;
   overflow: hidden;
 
-  transition: height 0.3s;
+  transition: width 0.3s;
 }
 
 .item-todo__btn-wrap_open {
-  height: 190px;
+  width: 185px;
+
+  z-index: 10;
 }

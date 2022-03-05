@@ -12,7 +12,7 @@ interface ICustomButton {
 function CustomButton({ children, nameClass, handler }: ICustomButton) {
   return (
     <button
-      className={`custom_button custom_button_${nameClass}`}
+      className={`custom__button custom__button_${nameClass}`}
       type="button"
       onClick={handler}
     >
