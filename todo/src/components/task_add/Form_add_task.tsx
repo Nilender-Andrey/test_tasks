@@ -1,8 +1,5 @@
 import React from 'react';
 
-import okImg from '../../assets/img/ok.png';
-import removeImg from '../../assets/img/remove.png';
-
 import './Task_add.css';
 
 interface IFormAddTaskProps {
@@ -37,10 +34,10 @@ function FormAddTask({ data, fun }: IFormAddTaskProps) {
 
       <div className='form-add-task__btn-wrap'>
         <button className='form-add-task__btn-submit custom__button' type='submit'>
-          <img src={okImg} alt='ok' />
+          <img src='./assets/img/ok.png' alt='ok' />
         </button>
         <button className='form-add-cancel custom__button' type='button' onClick={handlerCancel}>
-          <img src={removeImg} alt='cancel' />
+          <img src='./assets/img/remove.png' alt='cancel' />
         </button>
       </div>
     </form>

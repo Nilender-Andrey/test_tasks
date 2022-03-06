@@ -6,10 +6,10 @@ import TodoPage from '../pages/todo_page/Todo_page';
 function AppRouter() {
   return (
     <Routes>
-      <Route path="/" element={<MainPage />} />
-      <Route path="todo" element={<TodoPage />} />
+      <Route path='/' element={<MainPage />} />
+      <Route path='todo' element={<TodoPage />} />
       <Route
-        path="*"
+        path='*'
         element={<MainPage />}
       />
     </Routes>

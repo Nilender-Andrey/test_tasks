@@ -1,7 +1,5 @@
 import React from 'react';
 
-import logo from '../../assets/svg/logo.svg';
-
 import './Main_page.css';
 
 function MainPage() {
@@ -9,7 +7,7 @@ function MainPage() {
     <div className='main_page page'>
       <div className='main_page__body'>
         <div className='main_page__logo'>
-          <img src={logo} alt='Логотип' />
+          <img src='./assets/svg/logo.svg' alt='Логотип' />
         </div>
         <div className='main_page__info'>
           <h1 className='main_page__title'>To Do</h1>

@@ -20,7 +20,7 @@ function Pagination() {
   }, []);
 
   return (
-    <div className="pagination" ref={lastItem} />
+    <div className='pagination' ref={lastItem} />
   );
 }
 

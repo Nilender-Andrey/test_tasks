@@ -11,7 +11,7 @@ function Header() {
   ];
 
   return (
-    <header className="header">
+    <header className='header'>
       <Logo />
       <Nav links={links} />
     </header>

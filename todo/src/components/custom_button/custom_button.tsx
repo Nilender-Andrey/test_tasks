@@ -13,7 +13,7 @@ function CustomButton({ children, nameClass, handler }: ICustomButton) {
   return (
     <button
       className={`custom__button custom__button_${nameClass}`}
-      type="button"
+      type='button'
       onClick={handler}
     >
       {children}

@@ -1,12 +1,5 @@
 import React from 'react';
 
-import importantImg from '../../assets/img/important.png';
-import notImportantImg from '../../assets/img/not_important.png';
-import completedImg from '../../assets/img/checked.png';
-import notCompletedImg from '../../assets/img/stop.png';
-import noteImg from '../../assets/img/note.png';
-import removeImg from '../../assets/img/remove.png';
-import optionImg from '../../assets/img/option.png';
 import CustomButton from '../custom_button/custom_button';
 import { ITask } from '../../store/reducers/tasks/task_slice';
 
@@ -45,7 +38,7 @@ function ItemTodo({ task, fun }: IItemTodo) {
   return (
     <li className='item-todo'>
       <CustomButton nameClass='сompleted' handler={() => toComplete(id)}>
-        <img src={completed ? completedImg : notCompletedImg} alt='сompleted' />
+        <img src={completed ? './assets/img/checked.png' : './assets/img/stop.png'} alt='сompleted' />
       </CustomButton>
 
       <div className={`item-todo__info ${completed && 'checked'} ${
@@ -60,22 +53,22 @@ function ItemTodo({ task, fun }: IItemTodo) {
         : 'item-todo__btn-wrap'}
       >
         <CustomButton nameClass='сhange' handler={() => change(id)}>
-          <img src={noteImg} alt='сhange' />
+          <img src='./assets/img/note.png' alt='сhange' />
         </CustomButton>
 
         <CustomButton nameClass='important' handler={() => toggleImportant(id)}>
           <img
-            src={important ? importantImg : notImportantImg}
+            src={important ? './assets/img/important.png' : './assets/img/not_important.png'}
             alt='important'
           />
         </CustomButton>
 
         <CustomButton nameClass='remove' handler={() => removeTask(id)}>
-          <img src={removeImg} alt='important' />
+          <img src='./assets/img/remove.png' alt='important' />
         </CustomButton>
 
         <CustomButton nameClass='option' handler={() => toggleOption(id)}>
-          <img src={optionImg} alt='option' />
+          <img src='./assets/img/option.png' alt='option' />
         </CustomButton>
       </div>
     </li>
