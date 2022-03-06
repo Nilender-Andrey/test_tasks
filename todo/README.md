@@ -1,3 +1,6 @@
+Сразу посмотреть результат:
+https://nilender-andrey.github.io/test_tasks/todo/
+
 ## Тестовое задание React
 
 Нужно разработать приложение со списком todo в формате Single Page Application.
