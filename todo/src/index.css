@@ -20,7 +20,7 @@
 
   --color: #fff;
 
-  --form-bg-color: #003865;
+  --form-bg-color: #004c80;
 }
 
 * {
@@ -41,4 +41,29 @@ body {
 .page {
   position: relative;
   min-height: calc(100vh - var(--header-height));
+}
+
+.custom__button {
+  align-self: center;
+
+  width: 45px;
+  height: 45px;
+  padding: 10px;
+
+  outline: none;
+  border: none;
+  background: none;
+
+  cursor: pointer;
+
+  transition: transform 0.2s;
+}
+
+.custom__button img {
+  width: 100%;
+  object-fit: contain;
+}
+
+.custom__button:hover {
+  transform: scale(1.5);
 }

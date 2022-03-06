@@ -1,30 +1,39 @@
 import React from 'react';
 import { taskSlice } from '../../store/reducers/tasks/task_slice';
 import { useAppDispatch, useAppSelector } from '../../store/store';
+import FormAddTask from './Form_add_task';
 
 import './Task_add.css';
 
 function TaskAdd() {
-  const { newTask } = useAppSelector((state) => state.taskReducer);
-  const { title } = newTask;
+  const { formAddTask, taskFormOpen } = useAppSelector(
+    (state) => state.taskReducer,
+  );
+  const { title } = formAddTask;
   const dispatch = useAppDispatch();
-  const { addNewTaskTitle } = taskSlice.actions;
+  const { addTaskTitle, taskFormCancel, addTask } = taskSlice.actions;
 
-  const onInputTitle = (e:React.ChangeEvent<HTMLInputElement>) => {
+  const onInputTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
-    dispatch(addNewTaskTitle(value));
+    dispatch(addTaskTitle(value));
   };
 
+  const handlerCancel = () => {
+    dispatch(taskFormCancel());
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    dispatch(addTask());
+  };
+
+  const data = { title };
+
+  const fun = { onInputTitle, handlerCancel, handleSubmit };
+
   return (
-    <div className="add-task">
-      <form className="add-task__form form-add-task">
-        <div className="form-add-task__wrap">
-          <p className="form-add-task__title">Что должно быть сделано?</p>
-          <div className="form-add-task__input-wrap">
-            <input className="form-add-task__input-text" onInput={onInputTitle} value={title} type="text" />
-          </div>
-        </div>
-      </form>
+    <div className={taskFormOpen ? 'add-task' : 'add-task add-task_closed'}>
+      <FormAddTask data={data} fun={fun} />
     </div>
   );
 }

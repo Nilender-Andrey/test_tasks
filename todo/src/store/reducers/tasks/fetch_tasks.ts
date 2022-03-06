@@ -17,12 +17,16 @@ const fetchTasks = createAsyncThunk(
   'task/fetchAll',
   async ({ limit = 10, page = 1 }:IFetchTasksProps, thunkAPI) => {
     try {
-      const response = await axios.get('https://jsonplaceholder.typicode.com/todos', {
-        params: {
-          _limit: limit,
-          _page: page,
+      const response = await axios.get(
+        'https://jsonplaceholder.typicode.com/todos',
+        {
+          params:
+          {
+            _limit: limit,
+            _page: page,
+          },
         },
-      });
+      );
 
       const maxPage = getPageCount(Number(response.headers['x-total-count']), limit);
 
