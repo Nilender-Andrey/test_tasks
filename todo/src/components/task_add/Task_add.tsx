@@ -28,8 +28,9 @@ function TaskAdd() {
   };
 
   const data = { title };
-
   const fun = { onInputTitle, handlerCancel, handleSubmit };
+
+  document.body.style.overflowY = taskFormOpen ? 'hidden' : 'auto';
 
   return (
     <div className={taskFormOpen ? 'add-task' : 'add-task add-task_closed'}>

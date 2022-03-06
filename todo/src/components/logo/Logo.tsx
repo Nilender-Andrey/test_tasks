@@ -9,7 +9,6 @@ function Logo() {
       <Link className='logo__link' to='/'>
         <img src='./assets/svg/logo.svg' alt='Логотип' />
       </Link>
-
     </div>
   );
 }
