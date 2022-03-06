@@ -1,0 +1,20 @@
+.technical-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 98%;
+  height: 100px;
+  padding: 10px;
+  margin: 10px auto;
+
+  background-color: var(--header-bg-color);
+  border-radius: 10px;
+
+  font-size: 2rem;
+  color: var(--technical-info-color);
+}
+
+.technical-info p {
+  text-align: center;
+}

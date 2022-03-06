@@ -22,6 +22,8 @@
   --color: #fff;
 
   --form-bg-color: #004c80;
+
+  --technical-info-color: yellow;
 }
 
 * {
@@ -44,11 +46,11 @@ body {
   min-height: calc(100vh - var(--header-height));
 }
 
-.custom__button {
+.custom__btn {
   align-self: center;
 
-  width: 45px;
-  height: 45px;
+  width: 50px;
+  height: 50px;
   padding: 10px;
 
   outline: none;
@@ -60,11 +62,11 @@ body {
   transition: transform 0.2s;
 }
 
-.custom__button img {
+.custom__btn img {
   width: 100%;
   object-fit: contain;
 }
 
-.custom__button:hover {
+.custom__btn:hover {
   transform: scale(1.5);
 }

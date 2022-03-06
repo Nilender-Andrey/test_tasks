@@ -33,10 +33,10 @@ function FormAddTask({ data, fun }: IFormAddTaskProps) {
       </div>
 
       <div className='form-add-task__btn-wrap'>
-        <button className='form-add-task__btn-submit custom__button' type='submit'>
+        <button className='form-add-task__btn-submit custom__btn' type='submit'>
           <img src='./assets/img/ok.png' alt='ok' />
         </button>
-        <button className='form-add-cancel custom__button' type='button' onClick={handlerCancel}>
+        <button className='form-add-cancel custom__btn' type='button' onClick={handlerCancel}>
           <img src='./assets/img/remove.png' alt='cancel' />
         </button>
       </div>

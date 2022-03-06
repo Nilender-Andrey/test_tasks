@@ -1,29 +1,12 @@
 import React from 'react';
-
-import CustomButton from '../custom_button/custom_button';
 import { ITask } from '../../store/reducers/tasks/task_slice';
 
 interface IFunTask {
-  removeTask: (id: string) => {
-    payload: string;
-    type: string;
-  };
-  toggleOption: (id: string) => {
-    payload: string;
-    type: string;
-  };
-  toggleImportant: (id: string) => {
-    payload: string;
-    type: string;
-  };
-  toComplete: (id: string) => {
-    payload: string;
-    type: string;
-  };
-  change: (id: string) => {
-    payload: string;
-    type: string;
-  };
+  removeTask: (id: string) => void;
+  toggleOption: (id: string) => void;
+  toggleImportant: (id: string) => void;
+  toComplete: (id: string) => void;
+  change: (id: string) => void;
 }
 interface IItemTodo {
   task: ITask;
@@ -37,39 +20,70 @@ function ItemTodo({ task, fun }: IItemTodo) {
 
   return (
     <li className='item-todo'>
-      <CustomButton nameClass='сompleted' handler={() => toComplete(id)}>
-        <img src={completed ? './assets/img/checked.png' : './assets/img/stop.png'} alt='сompleted' />
-      </CustomButton>
+      <button
+        className='item-todo__btn custom__btn'
+        type='button'
+        onClick={() => toComplete(id)}
+      >
+        <img
+          src={completed ? './assets/img/checked.png' : './assets/img/stop.png'}
+          alt='сompleted'
+        />
+      </button>
 
-      <div className={`item-todo__info ${completed && 'checked'} ${
-        important && 'important'
-      }`}
+      <div
+        className={`item-todo__info ${completed && 'checked'} ${
+          important && 'important'
+        }`}
       >
         <p className='item-todo__title'>{title}</p>
       </div>
 
-      <div className={options
-        ? 'item-todo__btn-wrap item-todo__btn-wrap_open'
-        : 'item-todo__btn-wrap'}
+      <div
+        className={
+          options
+            ? 'item-todo__btn-wrap item-todo__btn-wrap_open'
+            : 'item-todo__btn-wrap'
+        }
       >
-        <CustomButton nameClass='сhange' handler={() => change(id)}>
+        <button
+          className='item-todo__btn custom__btn'
+          type='button'
+          onClick={() => change(id)}
+        >
           <img src='./assets/img/note.png' alt='сhange' />
-        </CustomButton>
+        </button>
 
-        <CustomButton nameClass='important' handler={() => toggleImportant(id)}>
+        <button
+          className='item-todo__btn custom__btn'
+          type='button'
+          onClick={() => toggleImportant(id)}
+        >
           <img
-            src={important ? './assets/img/important.png' : './assets/img/not_important.png'}
+            src={
+              important
+                ? './assets/img/important.png'
+                : './assets/img/not_important.png'
+            }
             alt='important'
           />
-        </CustomButton>
+        </button>
 
-        <CustomButton nameClass='remove' handler={() => removeTask(id)}>
+        <button
+          className='item-todo__btn custom__btn'
+          type='button'
+          onClick={() => removeTask(id)}
+        >
           <img src='./assets/img/remove.png' alt='important' />
-        </CustomButton>
+        </button>
 
-        <CustomButton nameClass='option' handler={() => toggleOption(id)}>
+        <button
+          className='item-todo__btn custom__btn'
+          type='button'
+          onClick={() => toggleOption(id)}
+        >
           <img src='./assets/img/option.png' alt='option' />
-        </CustomButton>
+        </button>
       </div>
     </li>
   );

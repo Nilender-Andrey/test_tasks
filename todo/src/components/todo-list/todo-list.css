@@ -11,7 +11,7 @@
   align-items: center;
   gap: 20px;
 
-  height: 70px;
+  min-height: 70px;
 
   margin-bottom: 20px;
   padding: 10px 20px 10px 10px;
@@ -34,7 +34,7 @@
 
 .item-todo__info {
   flex: 1 1 auto;
-
+  padding-right: 65px;
   cursor: pointer;
 }
 .item-todo__info.checked {
@@ -44,13 +44,8 @@
   font-weight: 700;
   color: #ea5d61;
 }
-.custom__button.custom__button_сompleted,
-.custom__button.custom__button_сhange,
-.custom__button.custom__button_important {
-  flex: 0 1 auto;
-}
 
-.custom__button.custom__button_option {
+.item-todo__btn {
   flex: 0 0 auto;
 }
 
@@ -62,7 +57,7 @@
   justify-content: flex-end;
   align-self: flex-end;
 
-  width: 45px;
+  width: 50px;
 
   background-color: #003865;
   border-radius: 5px;
@@ -72,7 +67,18 @@
 }
 
 .item-todo__btn-wrap_open {
-  width: 185px;
+  width: 200px;
 
   z-index: 10;
+}
+
+@media (max-width: 480px) {
+  .item-todo {
+    padding: 10px 0;
+    font-size: 1rem;
+  }
+
+  .item-todo__btn-wrap {
+    right: 10px;
+  }
 }
