@@ -6,9 +6,9 @@ import './Logo.css';
 
 function Logo() {
   return (
-    <div className="logo">
-      <Link className="logo__link" to="/">
-        <img src={logo} alt="Логотип" />
+    <div className='logo'>
+      <Link className='logo__link' to='/'>
+        <img src={logo} alt='Логотип' />
       </Link>
 
     </div>
