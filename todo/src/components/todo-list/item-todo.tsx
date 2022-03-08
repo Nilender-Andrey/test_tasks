@@ -1,19 +1,18 @@
 import React from 'react';
-import { ITask } from '../../store/reducers/tasks/task_slice';
+import { ITask } from '../../models/models';
 
-interface IFunTask {
-  removeTask: (id: string) => void;
-  toggleOption: (id: string) => void;
-  toggleImportant: (id: string) => void;
-  toComplete: (id: string) => void;
-  change: (id: string) => void;
-}
-interface IItemTodo {
+interface ItemTodoProps {
   task: ITask;
-  fun: IFunTask;
+  fun: {
+    removeTask: (id: string) => void;
+    toggleOption: (id: string) => void;
+    toggleImportant: (id: string) => void;
+    toComplete: (id: string) => void;
+    change: (id: string) => void;
+  };
 }
 
-function ItemTodo({ task, fun }: IItemTodo) {
+function ItemTodo({ task, fun }: ItemTodoProps) {
   const { id, title, completed, important, options } = task;
 
   const { toggleOption, removeTask, toggleImportant, toComplete, change } = fun;

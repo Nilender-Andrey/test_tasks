@@ -1,18 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { v4 as uuidv4 } from 'uuid';
-import fetchTasks, { IFetchTasks } from './fetch_tasks';
-
-export interface ITask {
-  id: string;
-  title: string;
-  completed: boolean;
-  important: boolean;
-  options: boolean;
-}
-export interface IFormAddTask {
-  id: string;
-  title: string;
-}
+import { IFetchTasks, IFormAddTask, ITask } from '../../../models/models';
+import fetchTasks from './fetch_tasks';
 
 interface TaskState {
   tasks: ITask[];
@@ -83,9 +72,8 @@ export const taskSlice = createSlice({
     addTask(state) {
       const title = state.formAddTask.title.trim();
       if (state.formAddTask.id) {
-        state.tasks = state.tasks.map((item) => ((item.id === state.formAddTask.id)
-          ? { ...item, title }
-          : item));
+        state.tasks = state.tasks.map((item) => (item.id === state.formAddTask.id
+          ? { ...item, title } : item));
         state.taskFormOpen = false;
       } else if (title.length) {
         const newTask = {
