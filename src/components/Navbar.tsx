@@ -1,0 +1,36 @@
+import React from 'react';
+import { contactsSlice } from '../store/reducers/authorization/authorization_slice';
+
+import { useAppDispatch, useAppSelector } from '../store/store';
+import Avatar from './Avatar';
+
+import Button from './Button';
+import Flex from './Flex';
+
+function Navbar() {
+  const { isAuth, user } = useAppSelector(
+    (state) => state.authorizationReducer,
+  );
+  const dispatch = useAppDispatch();
+
+  const { logout } = contactsSlice.actions;
+
+  const logoutHandler = () => {
+    dispatch(logout());
+  };
+
+  return (
+    <Flex align='center'>
+      {isAuth ? (
+        <>
+          <Avatar name={user.userName} />
+          <Button onClick={logoutHandler}>Logout</Button>
+        </>
+      ) : (
+        <Button>Login</Button>
+      )}
+    </Flex>
+  );
+}
+
+export default Navbar;
