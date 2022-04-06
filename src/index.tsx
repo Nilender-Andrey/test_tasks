@@ -13,8 +13,12 @@ const Global = createGlobalStyle`
   box-sizing: border-box;
 }
 
+html{
+  font-size: 18px;
+}
+
 :root{
-  --header-height: 80px
+  --header-height: 100px
 }
 `;
 

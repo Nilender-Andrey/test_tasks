@@ -1,5 +1,5 @@
 import React from 'react';
-import { contactsSlice } from '../store/reducers/authorization/authorization_slice';
+import { authorizationSlice } from '../store/reducers/authorization/authorization_slice';
 
 import { useAppDispatch, useAppSelector } from '../store/store';
 import Avatar from './Avatar';
@@ -13,7 +13,7 @@ function Navbar() {
   );
   const dispatch = useAppDispatch();
 
-  const { logout } = contactsSlice.actions;
+  const { logout } = authorizationSlice.actions;
 
   const logoutHandler = () => {
     dispatch(logout());
@@ -21,13 +21,11 @@ function Navbar() {
 
   return (
     <Flex align='center'>
-      {isAuth ? (
+      {isAuth && (
         <>
           <Avatar name={user.userName} />
           <Button onClick={logoutHandler}>Logout</Button>
         </>
-      ) : (
-        <Button>Login</Button>
       )}
     </Flex>
   );

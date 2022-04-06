@@ -17,7 +17,6 @@ function Header() {
   return (
     <StyledHeader>
       <Logo />
-
       <Navbar />
     </StyledHeader>
   );

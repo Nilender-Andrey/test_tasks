@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import styled from 'styled-components';
-import { ChildrenType } from '../types/Types';
 
 interface IFlexProps {
   direction?: string;
@@ -9,7 +8,7 @@ interface IFlexProps {
   margin?: string;
   padding?: string;
 
-  children: ChildrenType[] | ChildrenType;
+  children: ReactNode;
 }
 
 const StyledFlex = styled.div`

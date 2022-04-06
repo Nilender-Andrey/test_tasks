@@ -1,19 +1,18 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import styled from 'styled-components';
-import { ChildrenType } from '../types/Types';
 
 const StyledButton = styled.button`
   position: relative;
 
-  width: 100px;
-  height: 50px;
+  width: 80px;
+  height: 35px;
 
   font-size: 18px;
   cursor: pointer;
 
   border: 1px solid #1565c0;
   background-color: #1565c0;
-  border-radius: 10px;
+  border-radius: 5px;
   color: white;
 
   transition: all 150ms linear;
@@ -28,21 +27,20 @@ const StyledButton = styled.button`
   &:active {
     transform: scale(0.97);
   }
-
-  @media (max-width: 480px) {
-    width: 80px;
-    height: 40px;
-    font-size: 16px;
-  }
 `;
 
 interface IButton {
-  children: ChildrenType;
+  children: ReactNode;
   onClick?: () => void;
+  type?: 'button' | 'submit' | 'reset' | undefined;
 }
 
-function Button({ children, onClick }: IButton) {
-  return <StyledButton onClick={onClick}>{children}</StyledButton>;
+function Button({ children, onClick, type = 'button' }: IButton) {
+  return (
+    <StyledButton onClick={onClick} type={type}>
+      {children}
+    </StyledButton>
+  );
 }
 
 export default Button;

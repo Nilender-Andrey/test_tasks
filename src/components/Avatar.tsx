@@ -6,8 +6,6 @@ const AvatarWrap = styled.div`
   height: 70px;
   width: 70px;
 
-  border-radius: 50%;
-
   margin: 0 10px;
 
   text-align: center;

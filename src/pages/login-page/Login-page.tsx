@@ -1,11 +1,19 @@
 import React from 'react';
-import Flex from '../../components/Flex';
+import styled from 'styled-components';
+import ErrorBoundary from '../../components/Error_boundary';
+import Form from '../../components/Form';
+
+import { StyledPage } from '../style';
+
+const StyledLoginPage = styled(StyledPage)``;
 
 function LoginPage() {
   return (
-    <Flex padding={'20px'} justify={'center'}>
-      LoginPage
-    </Flex>
+    <ErrorBoundary>
+      <StyledLoginPage>
+        <Form />
+      </StyledLoginPage>
+    </ErrorBoundary>
   );
 }
 

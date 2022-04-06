@@ -1,7 +1,8 @@
 import React from 'react';
+import ErrorBoundary from '../../components/Error_boundary';
 
 function ContactsPage() {
-  return <div className='contacts-page '>ContactsPage</div>;
+  return <ErrorBoundary>ContactsPage </ErrorBoundary>;
 }
 
 export default ContactsPage;
