@@ -11,7 +11,7 @@ interface IFlexProps {
   children: ReactNode;
 }
 
-const StyledFlex = styled.div`
+export const StyledFlex = styled.div`
   display: flex;
   flex-direction: ${({ direction }: IFlexProps) => direction || 'row'};
   align-items: ${({ align }: IFlexProps) => align || 'stretch'};

@@ -1,5 +1,6 @@
 import React from 'react';
 import { authorizationSlice } from '../store/reducers/authorization/authorization_slice';
+import { contactsSlice } from '../store/reducers/contacts/contacts-slice';
 
 import { useAppDispatch, useAppSelector } from '../store/store';
 import Avatar from './Avatar';
@@ -14,8 +15,10 @@ function Navbar() {
   const dispatch = useAppDispatch();
 
   const { logout } = authorizationSlice.actions;
+  const { reset } = contactsSlice.actions;
 
   const logoutHandler = () => {
+    dispatch(reset());
     dispatch(logout());
   };
 

@@ -2,12 +2,15 @@ import React from 'react';
 import styled from 'styled-components';
 
 const StyledErrorIndicator = styled.div`
+  background-color: gray;
+
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
 
-  height: 100%;
+  width: 100%;
+  padding: 20px 0;
 `;
 
 const StyledErrorTitle = styled.p`

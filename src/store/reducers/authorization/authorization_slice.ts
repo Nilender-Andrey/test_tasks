@@ -6,7 +6,8 @@ interface IAuthorizationState {
   isAuth: boolean;
   user: IUser;
   isLoading: boolean;
-  error: string;
+  isErrorAuth: boolean;
+
   username: string;
   password: string;
   userFound: boolean;
@@ -16,7 +17,7 @@ const initialState: IAuthorizationState = {
   isAuth: false,
   user: {} as IUser,
   isLoading: false,
-  error: '',
+  isErrorAuth: false,
 
   username: '',
   password: '',
@@ -46,7 +47,7 @@ export const authorizationSlice = createSlice({
       action: PayloadAction<IUser | null>,
     ) => {
       state.isLoading = false;
-      state.error = '';
+      state.isErrorAuth = false;
 
       if (action.payload) {
         state.user = action.payload;
@@ -62,12 +63,9 @@ export const authorizationSlice = createSlice({
     [fetchAuthorization.pending.type]: (state) => {
       state.isLoading = true;
     },
-    [fetchAuthorization.rejected.type]: (
-      state,
-      action: PayloadAction<string>,
-    ) => {
+    [fetchAuthorization.rejected.type]: (state) => {
       state.isLoading = false;
-      state.error = action.payload;
+      state.isErrorAuth = true;
     },
   },
 });

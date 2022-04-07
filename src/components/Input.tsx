@@ -35,9 +35,9 @@ const StyledError = styled.p`
 
 interface InputProps {
   title: string;
-  type?: 'password' | 'text';
+  type?: 'password' | 'text' | 'tel';
   autoComplete: string;
-  value: string;
+  value: string | undefined;
   setValue: (value: string) => void;
   error: boolean;
   setError: React.Dispatch<React.SetStateAction<boolean>>;

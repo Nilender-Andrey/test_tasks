@@ -4,10 +4,13 @@ import { authorizationSlice } from '../store/reducers/authorization/authorizatio
 import fetchAuthorization from '../store/reducers/authorization/fetch-authorization';
 import { useAppDispatch, useAppSelector } from '../store/store';
 import Button from './Button';
+import ErrorIndicator from './Error-indicator';
 import Input from './Input';
 import Spinner from './Spinner';
 
 const StyledForm = styled.form`
+  position: relative;
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -36,9 +39,8 @@ function Form() {
   const [usernameError, setUsernameError] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
   const dispatch = useAppDispatch();
-  const { password, username, userFound, isLoading } = useAppSelector(
-    (state) => state.authorizationReducer,
-  );
+  const { password, username, userFound, isLoading, isErrorAuth } =
+    useAppSelector((state) => state.authorizationReducer);
   const { passwordEntry, usernameEntry } = authorizationSlice.actions;
 
   const submitHandler = (event: React.FormEvent) => {
@@ -48,7 +50,7 @@ function Form() {
     if (!password) setPasswordError(true);
 
     if (username && password) {
-      dispatch(fetchAuthorization({ userName: username, password }));
+      dispatch(fetchAuthorization({ username, password }));
     }
   };
 
@@ -59,35 +61,34 @@ function Form() {
     dispatch(usernameEntry(value));
   };
 
+  const spinner = isLoading ? <Spinner /> : null;
+  const errorMessage = isErrorAuth ? <ErrorIndicator /> : null;
+
   return (
     <StyledForm onSubmit={submitHandler}>
-      {isLoading ? (
-        <Spinner />
-      ) : (
-        <>
-          <Input
-            title={'username'}
-            value={username}
-            setValue={inputUsernameHandler}
-            autoComplete={'username'}
-            error={usernameError}
-            setError={setUsernameError}
-          />
-          <Input
-            title={'password'}
-            type={'password'}
-            value={password}
-            setValue={inputPasswordHandler}
-            autoComplete={'current-password'}
-            error={passwordError}
-            setError={setPasswordError}
-          />
-          <StyledError>
-            {!userFound ? 'Incorrect username or password' : ''}
-          </StyledError>
-          <Button type='submit'>Login</Button>
-        </>
-      )}
+      {spinner}
+      {errorMessage}
+      <Input
+        title={'username'}
+        value={username}
+        setValue={inputUsernameHandler}
+        autoComplete={'username'}
+        error={usernameError}
+        setError={setUsernameError}
+      />
+      <Input
+        title={'password'}
+        type={'password'}
+        value={password}
+        setValue={inputPasswordHandler}
+        autoComplete={'current-password'}
+        error={passwordError}
+        setError={setPasswordError}
+      />
+      <StyledError>
+        {!userFound ? 'Incorrect username or password' : ''}
+      </StyledError>
+      <Button type='submit'>Login</Button>
     </StyledForm>
   );
 }

@@ -5,5 +5,7 @@ export const StyledPage = styled.main`
   align-items: center;
   justify-content: center;
 
+  padding: 20px;
+
   min-height: calc(100vh - var(--header-height));
 `;

@@ -4,13 +4,14 @@ import styled from 'styled-components';
 const StyledButton = styled.button`
   position: relative;
 
-  width: 80px;
+  min-width: 80px;
   height: 35px;
+  padding: 0 5px;
 
   font-size: 18px;
   cursor: pointer;
 
-  border: 1px solid #1565c0;
+  border: 1px solid white;
   background-color: #1565c0;
   border-radius: 5px;
   color: white;
@@ -23,6 +24,7 @@ const StyledButton = styled.button`
   &:hover {
     color: #1565c0;
     background-color: white;
+    border: 1px solid #1565c0;
   }
   &:active {
     transform: scale(0.97);

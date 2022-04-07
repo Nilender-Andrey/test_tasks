@@ -2,14 +2,19 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { IUser } from '../../../types/User';
 
+interface IFetchAuthorization {
+  username: string;
+  password: string;
+}
+
 const fetchAuthorization = createAsyncThunk(
-  'task/fetchAll',
-  async ({ userName, password }: IUser, thunkAPI) => {
+  'authorization',
+  async ({ username, password }: IFetchAuthorization, thunkAPI) => {
     try {
       const response = await axios.get<IUser[]>('http://localhost:3001/users');
       const user = response.data.find(
         (user: IUser) =>
-          user.userName === userName && user.password === password,
+          user.userName === username && user.password === password,
       );
 
       if (user) return user;
