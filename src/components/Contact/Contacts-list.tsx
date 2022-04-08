@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import styled from 'styled-components';
 import { sortedAndSearchContacts } from '../../helpers/helpers';
 import {
@@ -46,9 +46,13 @@ function ContactsList() {
     editContact,
   };
 
-  const content = sortedAndSearchContacts(contacts, search).map((contact) => (
-    <Contact data={contact} event={event} key={contact.id} />
-  ));
+  const content = useMemo(
+    () =>
+      sortedAndSearchContacts(contacts, search).map((contact) => (
+        <Contact data={contact} event={event} key={contact.id} />
+      )),
+    [contacts, search],
+  );
 
   return (
     <StyledContactsList>
