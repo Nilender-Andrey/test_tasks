@@ -1,15 +1,16 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
+import { searchContacts } from '../../helpers/helpers';
 import {
-  addContacts,
   deleteContacts,
   getContacts,
   updateContacts,
 } from '../../store/reducers/contacts/fetch-contacts';
 import { useAppDispatch, useAppSelector } from '../../store/store';
 import { IContact } from '../../types/Contact';
-import AddContact from './Add-contact';
+
 import Contact from './Contact';
+import СontactsMenu from './Сontacts-menu';
 
 const StyledContactsList = styled.ul`
   display: flex;
@@ -24,11 +25,11 @@ function ContactsList() {
   const {
     user: { id },
   } = useAppSelector((state) => state.authorizationReducer);
-  const { contacts } = useAppSelector((state) => state.contactsReducer);
+  const { contacts, search } = useAppSelector((state) => state.contactsReducer);
 
   useEffect(() => {
     dispatch(getContacts(id));
-  }, [id]);
+  }, [dispatch, id]);
 
   const deleteContact = async (idItem: string) => {
     await dispatch(deleteContacts(idItem));
@@ -40,23 +41,18 @@ function ContactsList() {
     await dispatch(getContacts(id));
   };
 
-  const addContact = async (data: IContact) => {
-    await dispatch(addContacts({ ...data, belongId: id }));
-    await dispatch(getContacts(id));
-  };
-
   const event = {
     deleteContact,
     editContact,
   };
 
-  const content = contacts.map((contact) => (
+  const content = searchContacts(contacts, search).map((contact) => (
     <Contact data={contact} event={event} key={contact.id} />
   ));
 
   return (
     <StyledContactsList>
-      <AddContact addContact={addContact} />
+      <СontactsMenu />
       {content}
     </StyledContactsList>
   );

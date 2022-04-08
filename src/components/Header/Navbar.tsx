@@ -1,12 +1,12 @@
 import React from 'react';
-import { authorizationSlice } from '../store/reducers/authorization/authorization_slice';
-import { contactsSlice } from '../store/reducers/contacts/contacts-slice';
+import { authorizationSlice } from '../../store/reducers/authorization/authorization_slice';
+import { contactsSlice } from '../../store/reducers/contacts/contacts-slice';
 
-import { useAppDispatch, useAppSelector } from '../store/store';
+import { useAppDispatch, useAppSelector } from '../../store/store';
 import Avatar from './Avatar';
 
-import Button from './Button';
-import Flex from './Flex';
+import Button from '../UI/Button';
+import Flex from '../UI/Flex';
 
 function Navbar() {
   const { isAuth, user } = useAppSelector(

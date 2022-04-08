@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import ErrorBoundary from '../../components/Error-boundary';
-import Form from '../../components/Form';
+import Form from '../../components/Login/Form';
 
 import { StyledPage } from '../style';
 

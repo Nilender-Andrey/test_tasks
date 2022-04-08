@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import avatarSvg from '../assets/avatar.svg';
+import avatarSvg from '../../assets/avatar.svg';
 
 const AvatarWrap = styled.div`
   height: 70px;

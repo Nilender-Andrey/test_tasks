@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { IContact } from '../../types/Contact';
-import Button from '../Button';
-import Flex from '../Flex';
+import Button from '../UI/Button';
+import Flex from '../UI/Flex';
 
 import phoneSvg from '../../assets/phone.svg';
 

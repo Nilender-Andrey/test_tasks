@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { IContact } from '../../types/Contact';
 import styled from 'styled-components';
-import Button from '../Button';
-import Flex from '../Flex';
+import Button from '../UI/Button';
+import Flex from '../UI/Flex';
 
 const StyledInput = styled.input`
   flex: 0 1 auto;

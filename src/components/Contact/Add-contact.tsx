@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { IContact } from '../../types/Contact';
 import styled from 'styled-components';
-import Button from '../Button';
-import Flex from '../Flex';
+import Button from '../UI/Button';
+import Flex from '../UI/Flex';
 import Spinner from '../Spinner';
 
-const StyledAddContact = styled.li`
+const StyledAddContact = styled.div`
   position: relative;
 
   padding: 10px;
@@ -32,9 +32,10 @@ const StyledInput = styled.input`
 
 interface IAddContactProps {
   addContact: (data: IContact) => Promise<void>;
+  setAdding: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-function AddContact({ addContact }: IAddContactProps) {
+function AddContact({ addContact, setAdding }: IAddContactProps) {
   const [isLoading, setIsLoading] = useState(false);
   const defaultData = {
     id: uuidv4(),
@@ -43,7 +44,6 @@ function AddContact({ addContact }: IAddContactProps) {
     tel: '',
   };
 
-  const [adding, setAdding] = useState(false);
   const [newData, setNewData] = useState<IContact>(defaultData);
 
   const save = async () => {
@@ -56,7 +56,7 @@ function AddContact({ addContact }: IAddContactProps) {
 
   const spinner = isLoading ? <Spinner /> : null;
 
-  return adding ? (
+  return (
     <StyledAddContact>
       {spinner}
       <Flex margin={'0 0 10px 0'} justify={'space-around'}>
@@ -93,10 +93,6 @@ function AddContact({ addContact }: IAddContactProps) {
         <Button onClick={() => setAdding(false)}>Cancel</Button>
         <Button onClick={save}>Save</Button>
       </Flex>
-    </StyledAddContact>
-  ) : (
-    <StyledAddContact>
-      <Button onClick={() => setAdding(true)}>Add new contact</Button>
     </StyledAddContact>
   );
 }

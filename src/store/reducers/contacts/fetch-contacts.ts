@@ -9,7 +9,7 @@ export const getContacts = createAsyncThunk(
   async (id: string, thunkAPI) => {
     try {
       const response = await axios.get<IContact[]>(URL + `?belongId=${id}`);
-      console.log('getContacts', response.data);
+
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(
@@ -24,8 +24,6 @@ export const deleteContacts = createAsyncThunk(
   async (id: string, thunkAPI) => {
     try {
       await axios.delete<IContact[]>(URL + `/${id}`);
-
-      console.log('deleteContacts');
     } catch (error) {
       return thunkAPI.rejectWithValue(
         'Server not responding, please try again later',
@@ -58,7 +56,7 @@ export const addContacts = createAsyncThunk(
       const response = await axios.post<IContact[]>(URL, {
         ...data,
       });
-      console.log(response);
+
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(

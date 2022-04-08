@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { authorizationSlice } from '../store/reducers/authorization/authorization_slice';
-import fetchAuthorization from '../store/reducers/authorization/fetch-authorization';
-import { useAppDispatch, useAppSelector } from '../store/store';
-import Button from './Button';
-import ErrorIndicator from './Error-indicator';
+import { authorizationSlice } from '../../store/reducers/authorization/authorization_slice';
+import fetchAuthorization from '../../store/reducers/authorization/fetch-authorization';
+import { useAppDispatch, useAppSelector } from '../../store/store';
+import Button from '../UI/Button';
+import ErrorIndicator from '../Error-indicator';
 import Input from './Input';
-import Spinner from './Spinner';
+import Spinner from '../Spinner';
 
 const StyledForm = styled.form`
   position: relative;

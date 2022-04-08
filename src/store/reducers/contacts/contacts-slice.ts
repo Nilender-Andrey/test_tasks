@@ -9,6 +9,7 @@ import {
 
 interface IContactsState {
   contacts: IContact[];
+  search: string;
 
   isLoading: boolean;
   isErrorContact: boolean;
@@ -16,6 +17,7 @@ interface IContactsState {
 
 const initialState: IContactsState = {
   contacts: [] as IContact[],
+  search: '',
   isLoading: false,
   isErrorContact: false,
 };
@@ -26,6 +28,9 @@ export const contactsSlice = createSlice({
   reducers: {
     reset(state) {
       state.contacts = [];
+    },
+    editSearch(state, action: PayloadAction<string>) {
+      state.search = action.payload;
     },
   },
   extraReducers: {

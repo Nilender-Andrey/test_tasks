@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import AppRouter from './components/AppRouter';
 
-import Header from './components/Header';
+import Header from './components/Header/Header';
 import ErrorPage from './pages/error-page/Error-page';
 import { useAppSelector } from './store/store';
 
