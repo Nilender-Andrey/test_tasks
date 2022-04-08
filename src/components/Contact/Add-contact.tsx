@@ -12,7 +12,7 @@ const StyledAddContact = styled.div`
   padding: 10px;
   max-width: 300px;
 
-  background-color: #1565c0;
+  background-color: var(--main-color);
 
   color: white;
   font-size: 20px;
@@ -22,7 +22,7 @@ const StyledAddContact = styled.div`
 const StyledInput = styled.input`
   flex: 0 1 auto;
   padding: 2px;
-  width: 45%;
+  width: 48%;
   font-size: 18px;
 
   &::placeholder {

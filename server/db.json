@@ -37,7 +37,7 @@
     },
     {
       "id": "7",
-      "firstName": "Мария",
+      "firstName": "Яна",
       "lastName": "Иванова",
       "tel": "+9999999",
       "belongId": "1"
@@ -54,6 +54,13 @@
       "firstName": "Максим",
       "lastName": "Сидоров",
       "tel": "+7777777",
+      "belongId": "1"
+    },
+    {
+      "id": "65a66d2b-bebe-48bb-ae03-d8165e6d2e7e",
+      "firstName": "Андрей",
+      "lastName": "Фролов",
+      "tel": "77777",
       "belongId": "1"
     }
   ],

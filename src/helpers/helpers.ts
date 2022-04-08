@@ -15,17 +15,13 @@ export function searchContacts(contacts: IContact[], search: string) {
 
 export function sortedContacts<Key extends keyof IContact>(
   contacts: IContact[],
-  selectedSort: Key,
+  selectedSort = 'firstName',
 ) {
-  return contacts.sort((a, b) =>
-    a[selectedSort].localeCompare(b[selectedSort]),
+  return [...contacts].sort((a, b) =>
+    a[selectedSort as Key].localeCompare(b[selectedSort as Key]),
   );
 }
 
 export function sortedAndSearchContacts(contacts: IContact[], search: string) {
-  const searchResult = searchContacts(contacts, search);
-  console.log(searchResult);
-  const sortedResult = sortedContacts(searchResult, 'firstName');
-  console.log(sortedResult);
-  return sortedResult;
+  return sortedContacts(searchContacts(contacts, search));
 }

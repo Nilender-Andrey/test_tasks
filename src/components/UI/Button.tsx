@@ -12,7 +12,7 @@ const StyledButton = styled.button`
   cursor: pointer;
 
   border: 1px solid white;
-  background-color: #1565c0;
+  background-color: var(--main-color);
   border-radius: 5px;
   color: white;
 
@@ -22,9 +22,9 @@ const StyledButton = styled.button`
     outline: none;
   }
   &:hover {
-    color: #1565c0;
+    color: var(--main-color);
     background-color: white;
-    border: 1px solid #1565c0;
+    border: 1px solid var(--main-color);
   }
   &:active {
     transform: scale(0.97);

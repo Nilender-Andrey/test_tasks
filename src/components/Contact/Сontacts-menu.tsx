@@ -16,7 +16,7 @@ const StyledСontactsMenu = styled.li`
   padding: 10px;
   max-width: 300px;
 
-  background-color: #1565c0;
+  background-color: var(--main-color);
 
   color: white;
   font-size: 20px;

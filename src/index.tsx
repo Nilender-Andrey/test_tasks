@@ -18,7 +18,8 @@ html{
 }
 
 :root{
-  --header-height: 100px
+  --header-height: 100px;
+  --main-color:#1565c0
 }
 `;
 

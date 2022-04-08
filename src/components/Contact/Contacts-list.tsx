@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
-import { searchContacts } from '../../helpers/helpers';
+import { sortedAndSearchContacts } from '../../helpers/helpers';
 import {
   deleteContacts,
   getContacts,
@@ -46,7 +46,7 @@ function ContactsList() {
     editContact,
   };
 
-  const content = searchContacts(contacts, search).map((contact) => (
+  const content = sortedAndSearchContacts(contacts, search).map((contact) => (
     <Contact data={contact} event={event} key={contact.id} />
   ));
 

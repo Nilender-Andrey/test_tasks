@@ -18,9 +18,7 @@ const StyledContact = styled.li`
   position: relative;
   padding: 10px;
   max-width: 300px;
-
-  background-color: #1565c0;
-
+  background-color: var(--main-color);
   color: white;
   font-size: 20px;
 `;

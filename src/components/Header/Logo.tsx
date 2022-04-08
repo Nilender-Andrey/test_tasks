@@ -11,7 +11,7 @@ const StyledLogo = styled.h1`
 `;
 
 const Span = styled.span`
-  color: #1565c0;
+  color: var(--main-color);
 `;
 
 function Logo() {

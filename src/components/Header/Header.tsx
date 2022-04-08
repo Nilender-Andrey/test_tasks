@@ -10,7 +10,7 @@ const StyledHeader = styled.header`
 
   height: var(--header-height);
   padding: 0 10px;
-  border-bottom: 3px solid #1565c0;
+  border-bottom: 3px solid var(--main-color);
 `;
 
 function Header() {
