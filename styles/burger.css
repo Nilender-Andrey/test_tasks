@@ -1,0 +1,74 @@
+@media (min-width: 769px) {
+  .burger-btn {
+    display: none;
+  }
+}
+
+/******* Burger ***********************/
+.burger-btn {
+  position: relative;
+
+  grid-area: burger;
+
+  width: 50px;
+  height: 50px;
+
+  background-color: #008ef8;
+
+  transition: 0.5s all linear;
+}
+
+.burger-btn::before,
+.burger-btn::after,
+.burger-btn__span {
+  position: absolute;
+  left: 16px;
+  height: 1px;
+  width: 18px;
+
+  background-color: #ffffff;
+
+  transition: background-color 0.3s linear, all 0.2s;
+}
+
+.burger-btn::before,
+.burger-btn::after {
+  content: '';
+}
+
+.burger-btn::before {
+  bottom: 18px;
+}
+.burger-btn::after {
+  top: 19px;
+}
+
+.burger-btn:hover::before {
+  bottom: 20px;
+}
+.burger-btn:hover::after {
+  top: 21px;
+}
+
+.burger-btn.burger-btn_open .burger-btn__span {
+  left: 50%;
+  width: 0;
+  transition: all 0.2s width, 0.2s left;
+}
+
+.burger-btn.burger-btn_open::after {
+  transform: rotate(-45deg);
+  top: 23px;
+  transition: transform 0.1s, top 0.1s, width 0.2s, left 0.2s;
+}
+.burger-btn.burger-btn_open::before {
+  transform: rotate(45deg);
+  bottom: 26px;
+  transition: transform 0.1s, bottom 0.1s, width 0.2s, left 0.2s;
+}
+
+.burger-btn.burger-btn_open:hover::after,
+.burger-btn.burger-btn_open:hover::before {
+  left: 14px;
+  width: 22px;
+}

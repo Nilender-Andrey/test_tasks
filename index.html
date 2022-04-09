@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles/header.css" />
+  <link rel="stylesheet" href="/styles/burger.css" media="screen and (max-width: 768px)" />
+  <title>Header</title>
+</head>
+
+<body>
+  <header class="header">
+    <div class="header-background header-background_top"></div>
+    <div class="header-background header-background_bottom"></div>
+
+    <div class="header-wrapper">
+
+      <div class="lang-switch">
+        <button class="lang-switch-btn button">ru</button>
+      </div>
+
+      <nav class="top-nav">
+        <ul class="top-nav-list">
+          <li class="top-nav-list__item">
+            <a class="top-nav-list__link link" href="#!">Новости и блог</a>
+          </li>
+          <li class="top-nav-list__item">
+            <a class="top-nav-list__link link" href="#!">Оплата и доставка</a>
+          </li>
+          <li class="top-nav-list__item">
+            <a class="top-nav-list__link link" href="#!">Контакты</a>
+          </li>
+          <li class="top-nav-list__item">
+            <a class="top-nav-list__link link" href="#!">Вакансии</a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="search">
+        <input class="search__input" type="text" placeholder="Поиск..." />
+        <button class="search__btn btn-search button">
+          <img class="btn-search__img" src="./assets/svg/search.svg" alt="search" />
+        </button>
+      </div>
+
+
+      <nav class="bottom-nav">
+        <ul class="bottom-nav-list">
+          <li class="bottom-nav-list__item">
+            <a class="bottom-nav-list__link link" href="#!">Каталог</a>
+          </li>
+
+          <li class="bottom-nav-list__item">
+            <button class="bottom-nav-list__btn button">
+              Майнинг отель
+            </button>
+            <ul class="bottom-nav-sub-list">
+              <li class="bottom-nav-sub-list__item">
+                <a class="bottom-nav-sub-list__link link" href="#!">Калининская АЭС</a>
+              </li>
+              <li class="bottom-nav-sub-list__item">
+                <a class="bottom-nav-sub-list__link link" href="#!">ПАО “Тулачермет”</a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="bottom-nav-list__item">
+            <a class="bottom-nav-list__link link" href="#!">Лизинг</a>
+          </li>
+          <li class="bottom-nav-list__item">
+            <a class="bottom-nav-list__link link" href="#!">О компании</a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="phone">
+        <a class="phone__link link" href="tel:+74998774145">+7 (499) 877-41-45</a>
+      </div>
+
+      <div class="social-media">
+        <a class="social-media__link link" href="#!">
+          <img class="social-media__img" src="./assets/svg/telegram.svg" alt="Telegram"></a>
+        <a class="social-media__link link" href="#!">
+          <img class="social-media__img" src="./assets/svg/whatsapp.svg" alt="Whatsapp"></a>
+      </div>
+
+
+      <div class="order-call">
+        <a class="order-call__link link" href="#!">Заказать звонок</a>
+      </div>
+
+      <div class="shopping-cart">
+        <span class="shopping-cart__purchases">2</span>
+        <a class="shopping-cart__link link" href="#!">
+          <img class="shopping-cart__img" src="./assets/svg/shopping-bag.svg" alt="Shopping cart">
+          <p class="shopping-cart__title">Корзина</p>
+        </a>
+      </div>
+
+      <button class="burger-btn button">
+        <span class="burger-btn__span"></span>
+      </button>
+    </div>
+
+    <div class="burger-menu">
+
+    </div>
+  </header>
+</body>
+
+</html>
