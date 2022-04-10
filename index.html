@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/styles/header.css" />
-  <link rel="stylesheet" href="/styles/burger.css" media="screen and (max-width: 768px)" />
+  <link rel="stylesheet" href="/styles/burger.css" />
   <title>Header</title>
 </head>
 
@@ -21,22 +21,26 @@
     <div class="header-wrapper">
 
       <div class="lang-switch">
-        <button class="lang-switch-btn button">ru</button>
+        <button class="lang-switch__btn button">ru</button>
+        <div class="lang-switch-selection">
+          <button class="lang-switch-selection__btn lang-switch-selection__btn_ru button">ru</button>
+          <button class="lang-switch-selection__btn lang-switch-selection__btn_en button">en</button>
+        </div>
       </div>
 
       <nav class="top-nav">
-        <ul class="top-nav-list">
-          <li class="top-nav-list__item">
-            <a class="top-nav-list__link link" href="#!">Новости и блог</a>
+        <ul class="nav-list nav-list_top">
+          <li class="nav-list__item nav-list__item_top">
+            <a class="nav-list__link nav-list__link_top" href="#!">Новости и блог</a>
           </li>
-          <li class="top-nav-list__item">
-            <a class="top-nav-list__link link" href="#!">Оплата и доставка</a>
+          <li class="nav-list__item nav-list__item_top">
+            <a class="nav-list__link nav-list__link_top" href="#!">Оплата и доставка</a>
           </li>
-          <li class="top-nav-list__item">
-            <a class="top-nav-list__link link" href="#!">Контакты</a>
+          <li class="nav-list__item nav-list__item_top">
+            <a class="nav-list__link nav-list__link_top" href="#!">Контакты</a>
           </li>
-          <li class="top-nav-list__item">
-            <a class="top-nav-list__link link" href="#!">Вакансии</a>
+          <li class="nav-list__item nav-list__item_top">
+            <a class="nav-list__link nav-list__link_top" href="#!">Вакансии</a>
           </li>
         </ul>
       </nav>
@@ -50,67 +54,149 @@
 
 
       <nav class="bottom-nav">
-        <ul class="bottom-nav-list">
-          <li class="bottom-nav-list__item">
-            <a class="bottom-nav-list__link link" href="#!">Каталог</a>
+        <ul class="nav-list nav-list_bottom">
+          <li class="nav-list__item nav-list__item_bottom">
+            <a class="nav-list__link nav-list__link_bottom" href="#!">Каталог</a>
           </li>
 
-          <li class="bottom-nav-list__item">
-            <button class="bottom-nav-list__btn button">
+          <li class="nav-list__item nav-list__item_bottom">
+            <button class="nav-list__btn nav-list__btn_bottom button">
               Майнинг отель
             </button>
-            <ul class="bottom-nav-sub-list">
-              <li class="bottom-nav-sub-list__item">
-                <a class="bottom-nav-sub-list__link link" href="#!">Калининская АЭС</a>
+            <ul class="nav-list nav-list_sub">
+              <li class="nav-list__item nav-list__item_sub">
+                <a class="nav-list__link nav-list__link_sub" href="#!">Калининская АЭС</a>
               </li>
-              <li class="bottom-nav-sub-list__item">
-                <a class="bottom-nav-sub-list__link link" href="#!">ПАО “Тулачермет”</a>
+              <li class="nav-list__item nav-list__item_sub">
+                <a class="nav-list__link nav-list__link_sub" href="#!">ПАО “Тулачермет”</a>
               </li>
             </ul>
           </li>
 
-          <li class="bottom-nav-list__item">
-            <a class="bottom-nav-list__link link" href="#!">Лизинг</a>
+          <li class="nav-list__item nav-list__item_bottom">
+            <a class="nav-list__link nav-list__link_bottom" href="#!">Лизинг</a>
           </li>
-          <li class="bottom-nav-list__item">
-            <a class="bottom-nav-list__link link" href="#!">О компании</a>
+          <li class="nav-list__item nav-list__item_bottom">
+            <a class="nav-list__link nav-list__link_bottom" href="#!">О компании</a>
           </li>
         </ul>
       </nav>
 
       <div class="phone">
-        <a class="phone__link link" href="tel:+74998774145">+7 (499) 877-41-45</a>
+        <a class="phone__link" href="tel:+74998774145">+7 (499) 877-41-45</a>
       </div>
 
       <div class="social-media">
-        <a class="social-media__link link" href="#!">
+        <a class="social-media__link" href="#!">
           <img class="social-media__img" src="./assets/svg/telegram.svg" alt="Telegram"></a>
-        <a class="social-media__link link" href="#!">
+        <a class="social-media__link" href="#!">
           <img class="social-media__img" src="./assets/svg/whatsapp.svg" alt="Whatsapp"></a>
       </div>
 
 
       <div class="order-call">
-        <a class="order-call__link link" href="#!">Заказать звонок</a>
+        <a class="order-call__link" href="#!">Заказать звонок</a>
       </div>
 
       <div class="shopping-cart">
         <span class="shopping-cart__purchases">2</span>
-        <a class="shopping-cart__link link" href="#!">
+        <a class="shopping-cart__link" href="#!">
           <img class="shopping-cart__img" src="./assets/svg/shopping-bag.svg" alt="Shopping cart">
           <p class="shopping-cart__title">Корзина</p>
         </a>
       </div>
 
-      <button class="burger-btn button">
+      <button class="burger-btn">
         <span class="burger-btn__span"></span>
       </button>
     </div>
 
     <div class="burger-menu">
 
+      <div class="burger-header">
+        <p class="burger-header__title">Меню</p>
+
+        <div class="lang-switch lang-switch_burger">
+          <button class="lang-switch__btn lang-switch__btn_burger button">ru</button>
+          <div class="lang-switch-selection lang-switch-selection_burger">
+            <button class="lang-switch-selection__btn lang-switch-selection__btn_ru button">ru</button>
+            <button class="lang-switch-selection__btn lang-switch-selection__btn_en button">en</button>
+          </div>
+        </div>
+
+        <div class="search search_burger">
+          <input class="search__input search__input_burger" type="text" placeholder="Поиск..." />
+          <button class="search__btn search__btn_burger button">
+            <img class="btn-search__img btn-search__img_burger" src="./assets/svg/search_dark.svg" alt="search" />
+          </button>
+        </div>
+      </div>
+
+      <nav class="burger-nav">
+        <ul class="nav-list nav-list_burger">
+          <li class="nav-list__item nav-list__item_burger">
+            <a class="nav-list__link nav-list__link_burger" href="#!">Каталог</a>
+          </li>
+
+          <li class="nav-list__item nav-list__item_burger">
+            <button class="nav-list__btn nav-list__btn_burger button">
+              Майнинг отель
+            </button>
+
+            <ul class="nav-list nav-list_burger_sub">
+              <li class="nav-list__item nav-list__item_burger">
+                <a class="nav-list__link nav-list__link_burger" href="#!">Калининская АЭС</a>
+              </li>
+              <li class="nav-list__item nav-list__item_burger">
+                <a class="nav-list__link nav-list__link_burger" href="#!">ПАО «Тулачермет»</a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-list__item nav-list__item_burger">
+            <a class="nav-list__link nav-list__link_burger" href="#!">Лизинг</a>
+          </li>
+          <li class="nav-list__item nav-list__item_burger">
+            <a class="nav-list__link nav-list__link_burger" href="#!">О компании</a>
+          </li>
+          <li class="nav-list__item nav-list__item_burger">
+            <a class="nav-list__link nav-list__link_burger" href="#!">Новости и блог</a>
+          </li>
+          <li class="nav-list__item nav-list__item_burger">
+            <a class="nav-list__link nav-list__link_burger" href="#!">Оплата и доставка</a>
+          </li>
+          <li class="nav-list__item nav-list__item_burger">
+            <a class="nav-list__link nav-list__link_burger" href="#!">Контакты</a>
+          </li>
+          <li class="nav-list__item nav-list__item_burger">
+            <a class="nav-list__link nav-list__link_burger" href="#!">Вакансии</a>
+          </li>
+        </ul>
+      </nav>
+
+
+
+      <div class="burger-footer">
+        <div class="phone phone_burger">
+          <a class="phone__link phone__link_burger" href="tel:+74998774145">+7 (499) 877-41-45</a>
+        </div>
+
+        <div class="social-media social-media_burger">
+          <a class="social-media__link social-media__link_burger" href="#!">
+            <img class="social-media__img social-media__img_burger" src="./assets/svg/telegram.svg" alt="Telegram"></a>
+          <a class="social-media__link social-media__link_burger" href="#!">
+            <img class="social-media__img social-media__img_burger" src="./assets/svg/whatsapp.svg" alt="Whatsapp"></a>
+        </div>
+
+        <div class="order-call order-call_burger">
+          <a class="order-call__link order-call__link_burger" href="#!">Заказать звонок</a>
+        </div>
+      </div>
+
     </div>
   </header>
+
+  <script src="js/index.js"></script>
 </body>
 
 </html>
