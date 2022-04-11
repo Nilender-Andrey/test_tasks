@@ -5,9 +5,9 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/styles/header.css" />
   <link rel="stylesheet" href="/styles/burger.css" />
   <title>Header</title>
@@ -23,8 +23,8 @@
       <div class="lang-switch">
         <button class="lang-switch__btn button">ru</button>
         <div class="lang-switch-selection">
-          <button class="lang-switch-selection__btn lang-switch-selection__btn_ru button">ru</button>
-          <button class="lang-switch-selection__btn lang-switch-selection__btn_en button">en</button>
+          <button class="lang-switch-selection__btn lang-switch-selection__btn_ru button" data-language="RU">ru</button>
+          <button class="lang-switch-selection__btn lang-switch-selection__btn_en button" data-language="EN">en</button>
         </div>
       </div>
 
@@ -60,10 +60,10 @@
           </li>
 
           <li class="nav-list__item nav-list__item_bottom">
-            <button class="nav-list__btn nav-list__btn_bottom button">
+            <button class="nav-list__btn nav-list__btn_bottom button" data-name="miningHotel">
               Майнинг отель
             </button>
-            <ul class="nav-list nav-list_sub">
+            <ul class="nav-list nav-list_sub" data-name="miningHotel">
               <li class="nav-list__item nav-list__item_sub">
                 <a class="nav-list__link nav-list__link_sub" href="#!">Калининская АЭС</a>
               </li>
@@ -119,8 +119,10 @@
         <div class="lang-switch lang-switch_burger">
           <button class="lang-switch__btn lang-switch__btn_burger button">ru</button>
           <div class="lang-switch-selection lang-switch-selection_burger">
-            <button class="lang-switch-selection__btn lang-switch-selection__btn_ru button">ru</button>
-            <button class="lang-switch-selection__btn lang-switch-selection__btn_en button">en</button>
+            <button class="lang-switch-selection__btn lang-switch-selection__btn_ru button"
+              data-language="RU">ru</button>
+            <button class="lang-switch-selection__btn lang-switch-selection__btn_en button"
+              data-language="EN">en</button>
           </div>
         </div>
 
@@ -138,10 +140,8 @@
             <a class="nav-list__link nav-list__link_burger" href="#!">Каталог</a>
           </li>
 
-          <li class="nav-list__item nav-list__item_burger">
-            <button class="nav-list__btn nav-list__btn_burger button">
-              Майнинг отель
-            </button>
+          <li class="nav-list__item nav-list__item_burger" data-name="miningHotel">
+            <button class="nav-list__btn nav-list__btn_burger button" data-name="miningHotel">Майнинг отель</button>
 
             <ul class="nav-list nav-list_burger_sub">
               <li class="nav-list__item nav-list__item_burger">
@@ -196,6 +196,7 @@
     </div>
   </header>
 
+  <script src="js/burger_menu.js"></script>
   <script src="js/index.js"></script>
 </body>
 

@@ -8,9 +8,16 @@ html {
   font-size: 12px;
 }
 
+html,
+body {
+  position: relative;
+  overflow-x: hidden;
+}
+
 body {
   font-family: 'Open Sans', sans-serif;
   background-color: lightgray;
+  min-height: 100vh;
 }
 
 :root {
@@ -97,6 +104,7 @@ body {
   text-transform: uppercase;
 }
 
+.lang-switch__btn_open::after,
 .lang-switch__btn::after {
   position: absolute;
 
@@ -105,7 +113,13 @@ body {
   content: '';
   width: 5px;
   height: 5px;
+}
 
+.lang-switch__btn::after {
+  background: url('../assets/svg/triangle_down.svg') center/100% no-repeat;
+}
+
+.lang-switch__btn_open::after {
   background: url('../assets/svg/triangle_up.svg') center/100% no-repeat;
 }
 
@@ -135,28 +149,15 @@ body {
     drop-shadow(0px 2.71728px 4.34765px rgba(0, 0, 0, 0.02281))
     drop-shadow(0px 1.19595px 1.91351px rgba(0, 0, 0, 0.03));
 
-  transition: 0.3s;
+  transform: scale(0);
+  visibility: hidden;
+  transition: transform 0.3s, visibility 0.5s;
 }
 
 .lang-switch-selection_open {
-  animation-name: lang-switch-selection;
-  animation-duration: 0.3s;
-  animation-direction: reverse;
-  animation-fill-mode: forwards;
-}
-.lang-switch-selection_close {
-  animation-name: lang-switch-selection;
-  animation-duration: 0.3s;
-  animation-fill-mode: forwards;
-}
-
-@keyframes lang-switch-selection {
-  0% {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(0);
-  }
+  transform: scale(1);
+  visibility: visible;
+  transition: transform 0.3s, visibility 0.1s;
 }
 
 .lang-switch-selection__btn {
@@ -222,8 +223,9 @@ body {
   list-style: none;
 }
 
-.nav-list__link {
-  text-decoration: none;
+.nav-list__btn:hover,
+.nav-list__link:hover {
+  color: #008ef8;
 }
 
 .nav-list__link,
@@ -232,6 +234,7 @@ body {
   font-size: 14px;
   line-height: 20px;
   color: #181a31;
+  text-decoration: none;
   transition: 0.3s;
 }
 
@@ -240,7 +243,7 @@ body {
   padding: 0 19px 0 0px;
 }
 
-.nav-list__btn::after {
+.nav-list__btn_bottom::after {
   position: absolute;
   top: 0;
   right: -4px;
@@ -253,8 +256,16 @@ body {
   background: url('../assets/svg/chevron-down.svg') center no-repeat;
 }
 
-.nav-list__btn:hover::after {
+.nav-list__btn_bottom:hover::after {
   background: url('../assets/svg/chevron-down-color.svg') center no-repeat;
+}
+
+.nav-list__btn_bottom.open::after {
+  background: url('../assets/svg/chevron-top.svg') center no-repeat;
+}
+
+.nav-list__btn_bottom.open:hover::after {
+  background: url('../assets/svg/chevron-top-color.svg') center no-repeat;
 }
 
 /*** Top Nav *******************************************************/
@@ -282,6 +293,10 @@ body {
   color: #fffc;
 }
 
+.nav-list__link_top:hover {
+  color: #fffc;
+}
+
 /*** Bottom nav *******************************************************/
 .bottom-nav {
   grid-area: bottom-nav;
@@ -302,11 +317,6 @@ body {
   margin-left: 40px;
 }
 
-.nav-list__btn_bottom:hover,
-.nav-list__link_bottom:hover {
-  color: #0081e1;
-}
-
 /******* Sub nav **************************/
 
 .nav-list_sub {
@@ -315,11 +325,12 @@ body {
   position: absolute;
   top: 45px;
   right: -13px;
+  z-index: 10;
 
   width: 156px;
   padding: 8px 0;
 
-  background: #ffffff;
+  background-color: #ffffff;
   border-radius: 5px;
   filter: drop-shadow(0px 60px 96px rgba(0, 0, 0, 0.00719002))
     drop-shadow(0px 30.0293px 48.0469px rgba(0, 0, 0, 0.0104523))
@@ -331,6 +342,16 @@ body {
     drop-shadow(0px 1.19595px 1.91351px rgba(0, 0, 0, 0.03));
 
   list-style: none;
+
+  transform-origin: center top;
+  transform: scaleY(0);
+  visibility: hidden;
+  transition: transform 0.3s, visibility 0.5s;
+}
+
+.nav-list_sub.open {
+  transform: scaleY(1);
+  visibility: visible;
 }
 
 .nav-list__link_sub {
@@ -524,7 +545,7 @@ body {
   }
 
   .lang-switch__btn::after {
-    right: -2px;
+    right: 0;
   }
 }
 
