@@ -96,9 +96,7 @@
     height: calc(100vh - 50px);
 
     background-color: #fff;
-
     overflow-y: hidden;
-
     transition: right 0.5s linear;
   }
 
@@ -172,14 +170,14 @@
   .nav-list__item_burger {
     padding: 10px 0;
 
-    max-height: 130px;
-
+    max-height: 40px;
+    overflow: hidden;
     transition: max-height 0.2s linear, overflow 0.3s;
   }
 
   .nav-list__item_burger.open {
-    max-height: 40px;
-    overflow: hidden;
+    max-height: 130px;
+
     transition: max-height 0.2s linear, overflow 0.3s;
   }
 
@@ -193,11 +191,11 @@
     width: 5px;
     height: 5px;
 
-    background: url('../assets/svg/triangle_up.svg') center/100% no-repeat;
+    background: url('../assets/svg/triangle_down.svg') center/100% no-repeat;
   }
 
   .nav-list__btn_burger.open::after {
-    background: url('../assets/svg/triangle_down.svg') center/100% no-repeat;
+    background: url('../assets/svg/triangle_up.svg') center/100% no-repeat;
   }
 }
 
