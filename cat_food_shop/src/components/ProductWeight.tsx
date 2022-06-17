@@ -1,11 +1,17 @@
 import React, { FC } from 'react';
 import styled from 'styled-components/macro';
+import Text from './Text';
 
 type ProductWeightProps = {
   weight: string;
+  selected: boolean;
 };
 
-const ProductWeightStyle = styled.div`
+type ProductWeightStyleProps = {
+  selected: boolean;
+};
+
+const ProductWeightStyle = styled.div<ProductWeightStyleProps>`
   position: absolute;
   bottom: 16px;
   right: 17px;
@@ -15,27 +21,23 @@ const ProductWeightStyle = styled.div`
   height: 80px;
   width: 80px;
   border-radius: 50%;
-  background-color: #1698d9;
+  background-color: ${({ selected }) => (selected ? '#D91667' : '#1698d9')};
 
-  .weight,
-  .unit {
-    font-weight: 400;
-    font-size: 42px;
-    line-height: 22px;
-    text-align: center;
-  }
-
-  .unit {
-    margin-top: 7px;
-    font-size: 21px;
+  @media (max-width: 360px) {
+    bottom: 50px;
+    right: 20px;
   }
 `;
 
-const ProductWeight: FC<ProductWeightProps> = ({ weight }) => {
+const ProductWeight: FC<ProductWeightProps> = ({ weight, selected }) => {
   return (
-    <ProductWeightStyle>
-      <p className='weight'>{weight}</p>
-      <p className='unit'>кг</p>
+    <ProductWeightStyle selected={selected}>
+      <Text fs={'42px'} ta={'center'} mb={'7px'} color={'#fff'} lh={'22px'}>
+        {weight}
+      </Text>
+      <Text fs={'21px'} ta={'center'} color={'#fff'} lh={'22px'}>
+        кг
+      </Text>
     </ProductWeightStyle>
   );
 };

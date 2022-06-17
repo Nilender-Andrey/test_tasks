@@ -1,6 +1,44 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 import CardsWrapper from './components/CardsWrapper';
+import Title from './components/Title';
+import { ProductType } from './types';
+
+const products: ProductType[] = [
+  {
+    id: 1,
+    name: 'с фуа-гра',
+    portions: '10',
+    present: 'мышь',
+    weight: '0,5',
+    isHappy: false,
+    selected: false,
+    isStock: true,
+    about: 'Печень утки разварная с артишоками.',
+  },
+  {
+    id: 2,
+    name: 'с рыбой',
+    portions: '40',
+    present: '2 мыши',
+    weight: '2',
+    isHappy: false,
+    selected: false,
+    isStock: true,
+    about: 'Головы щучьи с чесноком да свежайшая сёмгушка.',
+  },
+  {
+    id: 3,
+    name: 'с курой',
+    portions: '100',
+    present: '5 мышей',
+    weight: '5',
+    isHappy: true,
+    selected: false,
+    isStock: false,
+    about: 'Филе из цыплят с трюфелями в бульоне.',
+  },
+];
 
 const AppStyle = styled.main`
   display: flex;
@@ -9,28 +47,18 @@ const AppStyle = styled.main`
   align-items: center;
 
   margin: 0 auto;
-  height: 680px;
-  width: 1280px;
+
+  max-width: 1280px;
+  width: 100%;
 
   color: white;
-`;
-
-const MainTitle = styled.h1`
-  margin-bottom: 24px;
-
-  font-weight: 400;
-  font-family: 'Exo 2.0';
-  font-size: 36px;
-  line-height: 44px;
-  color: #ffffff;
-  text-shadow: 0px 1px 1px #000000;
 `;
 
 function App() {
   return (
     <AppStyle>
-      <MainTitle>Ты сегодня покормил кота?</MainTitle>
-      <CardsWrapper />
+      <Title>Ты сегодня покормил кота?</Title>
+      <CardsWrapper products={products} />
     </AppStyle>
   );
 }

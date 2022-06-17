@@ -3,13 +3,17 @@ import background from './assets/background.png';
 
 const GlobalStyle = createGlobalStyle`
 @font-face {
-font-family: "Exo 2.0";
-src: url("/fonts/Exo2.0-Thin.woff2") format("woff2");
+font-family: "Exo 2.0 Thin";
+src:
+local('Exo 2.0 Thin'),
+ url("/fonts/Exo2.0-Thin.woff2") format("woff2"),
+ url("/fonts/Exo2.0-Thin.otf") format("opentype");
 }
 
 @font-face {
 font-family: "Trebuchet MS";
-src: url("/fonts/TrebuchetMS.woff") format("woff");
+src: local("Trebuchet MS"), 
+url("/fonts/TrebuchetMS.woff") format("woff");
 }
 
 * {
@@ -22,17 +26,23 @@ html,
 body {
   width: 100%;
   height: 100%;
-  overflow: hidden;
 }
 
 body{
+
+  font-family: "Trebuchet MS";
+}
+
+#root{
   display: flex;
   justify-content: center;
   align-items: center;
   background: url(${background});
-  font-family: "Trebuchet MS";
-}
 
+  padding: 10px;
+  width: 100%;
+  min-height: 100vh;
+}
 `;
 
 export default GlobalStyle;
