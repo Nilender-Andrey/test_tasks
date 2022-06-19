@@ -4,16 +4,15 @@ import background from './assets/background.png';
 const GlobalStyle = createGlobalStyle`
 @font-face {
 font-family: "Exo 2.0 Thin";
-src:
-local('Exo 2.0 Thin'),
- url("/fonts/Exo2.0-Thin.woff2") format("woff2"),
- url("/fonts/Exo2.0-Thin.otf") format("opentype");
+src: 
+ url("./fonts/Exo2.0-Thin.woff2") format("woff2"),
+ url("./fonts/Exo2.0-Thin.otf") format("opentype");
 }
 
 @font-face {
 font-family: "Trebuchet MS";
-src: local("Trebuchet MS"), 
-url("/fonts/TrebuchetMS.woff") format("woff");
+src: 
+ url("./fonts/TrebuchetMS.woff") format("woff");
 }
 
 * {
@@ -29,7 +28,6 @@ body {
 }
 
 body{
-
   font-family: "Trebuchet MS";
 }
 
